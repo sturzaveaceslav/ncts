@@ -30,6 +30,14 @@ public class MainApp extends Application {
     private TextField invoiceValueField = new TextField();
     private TextField packTypeField = new TextField("ZZ");
     private TextField shippingMarksField = new TextField("F/M");
+    private TextField consigneeNameField = new TextField();
+    private TextField consigneeStreetField = new TextField();
+    private TextField consigneeCityField = new TextField();
+    private TextField consigneePostcodeField = new TextField();
+    private TextField consigneeCountryField = new TextField();
+    private TextField expCountryField = new TextField("MD");
+
+
 
     private TextField guaranteeNumberField = new TextField();
     private TextField guaranteeCodeField = new TextField();
@@ -69,44 +77,60 @@ public class MainApp extends Application {
         ComboBox<String> addDeclTypeBox = new ComboBox<>(FXCollections.observableArrayList("A - Declarație standard", "D - Declaratie inainte de prezentare"));
         addDeclTypeBox.setValue("A - Declarație standard");
 
-        grid.add(new Label("Tip Declarație"), 0, r); grid.add(declarationTypeBox, 1, r++);
-        grid.add(new Label("Tip detaliere"), 0, r); grid.add(addDeclTypeBox, 1, r++);
+        grid.add(new Label("Tip Declarație"), 0, r);
+        grid.add(declarationTypeBox, 1, r++);
+        grid.add(new Label("Tip detaliere"), 0, r);
+        grid.add(addDeclTypeBox, 1, r++);
 
         TextField contactNameField = new TextField();
         TextField contactPhoneField = new TextField();
         TextField contactEmailField = new TextField();
-        var saved = md.ncts.util.ContactStorage.load();
+        var saved = md.ncts.util.SavedDataStorage.load();
         if (saved != null) {
-            contactNameField.setText(saved.name);
-            contactPhoneField.setText(saved.phone);
-            contactEmailField.setText(saved.email);
+            expCountryField.setText(saved.expCountry);
+            contactNameField.setText(saved.contactName);
+            contactPhoneField.setText(saved.contactPhone);
+            contactEmailField.setText(saved.contactEmail);
         }
-
 
         GridPane contactGrid = new GridPane();
         contactGrid.setHgap(15);
         contactGrid.setVgap(10);
         contactGrid.setPadding(new Insets(20, 0, 0, 0));
 
-        contactGrid.add(new Label("Nume Contact"), 0, 0); contactGrid.add(contactNameField, 1, 0);
-        contactGrid.add(new Label("Telefon"), 0, 1); contactGrid.add(contactPhoneField, 1, 1);
-        contactGrid.add(new Label("Email"), 0, 2); contactGrid.add(contactEmailField, 1, 2);
+        contactGrid.add(new Label("Nume Contact"), 0, 0);
+        contactGrid.add(contactNameField, 1, 0);
+        contactGrid.add(new Label("Telefon"), 0, 1);
+        contactGrid.add(contactPhoneField, 1, 1);
+        contactGrid.add(new Label("Email"), 0, 2);
+        contactGrid.add(contactEmailField, 1, 2);
 
 
+        grid.add(new Label("EORI"), 0, r);
+        grid.add(eoriField, 1, r++);
+        grid.add(new Label("Truck Number"), 0, r);
+        grid.add(truckField, 1, r++);
+        grid.add(new Label("Departure Office"), 0, r);
+        grid.add(depOfficeField, 1, r++);
+        grid.add(new Label("Destination Office"), 0, r);
+        grid.add(destOfficeField, 1, r++);
+        grid.add(new Label("Total Gross Mass"), 0, r);
+        grid.add(grossMassField, 1, r++);
+        grid.add(new Label("Total Invoice Value (EUR)"), 0, r);
+        grid.add(invoiceValueField, 1, r++);
+        grid.add(new Label("Package Type"), 0, r);
+        grid.add(packTypeField, 1, r++);
+        grid.add(new Label("Shipping Marks"), 0, r);
+        grid.add(shippingMarksField, 1, r++);
 
-        grid.add(new Label("EORI"), 0, r); grid.add(eoriField, 1, r++);
-        grid.add(new Label("Truck Number"), 0, r); grid.add(truckField, 1, r++);
-        grid.add(new Label("Departure Office"), 0, r); grid.add(depOfficeField, 1, r++);
-        grid.add(new Label("Destination Office"), 0, r); grid.add(destOfficeField, 1, r++);
-        grid.add(new Label("Total Gross Mass"), 0, r); grid.add(grossMassField, 1, r++);
-        grid.add(new Label("Total Invoice Value (EUR)"), 0, r); grid.add(invoiceValueField, 1, r++);
-        grid.add(new Label("Package Type"), 0, r); grid.add(packTypeField, 1, r++);
-        grid.add(new Label("Shipping Marks"), 0, r); grid.add(shippingMarksField, 1, r++);
-
-        grid.add(new Label("Guarantee Number"), 2, 0); grid.add(guaranteeNumberField, 3, 0);
-        grid.add(new Label("Guarantee Code"), 2, 1); grid.add(guaranteeCodeField, 3, 1);
-        grid.add(new Label("Guarantee Amount (EUR)"), 2, 2); grid.add(guaranteeAmountField, 3, 2);
-        grid.add(new Label("Tip Garanție"), 2, 3); grid.add(guaranteeTypeBox, 3, 3);
+        grid.add(new Label("Guarantee Number"), 2, 0);
+        grid.add(guaranteeNumberField, 3, 0);
+        grid.add(new Label("Guarantee Code"), 2, 1);
+        grid.add(guaranteeCodeField, 3, 1);
+        grid.add(new Label("Guarantee Amount (EUR)"), 2, 2);
+        grid.add(guaranteeAmountField, 3, 2);
+        grid.add(new Label("Tip Garanție"), 2, 3);
+        grid.add(guaranteeTypeBox, 3, 3);
         GridPane repGrid = new GridPane();
         repGrid.setHgap(15);
         repGrid.setVgap(10);
@@ -121,17 +145,45 @@ public class MainApp extends Application {
         repCountryField = new TextField("MD");
 
 // Adăugăm în repGrid
-        repGrid.add(new Label("Representative Name"), 0, 0); repGrid.add(repNameField, 1, 0);
-        repGrid.add(new Label("EORI / Cod Fiscal"), 0, 1); repGrid.add(repCuiField, 1, 1);
-        repGrid.add(new Label("Street"), 0, 2); repGrid.add(repStreetField, 1, 2);
-        repGrid.add(new Label("City"), 0, 3); repGrid.add(repCityField, 1, 3);
-        repGrid.add(new Label("Postcode"), 0, 4); repGrid.add(repPostcodeField, 1, 4);
-        repGrid.add(new Label("Country"), 0, 5); repGrid.add(repCountryField, 1, 5);
+        repGrid.add(new Label("Representative Name"), 0, 0);
+        repGrid.add(repNameField, 1, 0);
+        repGrid.add(new Label("EORI / Cod Fiscal"), 0, 1);
+        repGrid.add(repCuiField, 1, 1);
+        repGrid.add(new Label("Street"), 0, 2);
+        repGrid.add(repStreetField, 1, 2);
+        repGrid.add(new Label("City"), 0, 3);
+        repGrid.add(repCityField, 1, 3);
+        repGrid.add(new Label("Postcode"), 0, 4);
+        repGrid.add(repPostcodeField, 1, 4);
+        repGrid.add(new Label("Country"), 0, 5);
+        repGrid.add(repCountryField, 1, 5);
 
         VBox garantieBox = new VBox(20, grid);          // partea de sus (garantie, date generale)
         VBox reprezentantBox = new VBox(20, repGrid);   // partea de jos (reprezentant)
 
         VBox rightBox = new VBox(30, garantieBox, reprezentantBox);
+
+        GridPane consigneeGrid = new GridPane();
+        consigneeGrid.setHgap(10);
+        consigneeGrid.setVgap(10);
+        consigneeGrid.setPadding(new Insets(20, 0, 0, 0));
+
+        Label consigneeTitle = new Label("Destinatar (Consignee)");
+        consigneeTitle.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
+        consigneeGrid.add(consigneeTitle, 0, 0, 2, 1);
+
+        consigneeGrid.add(new Label("Nume:"), 0, 1);
+        consigneeGrid.add(consigneeNameField, 1, 1);
+        consigneeGrid.add(new Label("Strada:"), 0, 2);
+        consigneeGrid.add(consigneeStreetField, 1, 2);
+        consigneeGrid.add(new Label("Oraș:"), 0, 3);
+        consigneeGrid.add(consigneeCityField, 1, 3);
+        consigneeGrid.add(new Label("Cod poștal:"), 0, 4);
+        consigneeGrid.add(consigneePostcodeField, 1, 4);
+        consigneeGrid.add(new Label("Țara:"), 0, 5);
+        consigneeGrid.add(consigneeCountryField, 1, 5);
+
+
 
 
         // Secțiune Exportator
@@ -140,10 +192,18 @@ public class MainApp extends Application {
         exporterGrid.setVgap(10);
         exporterGrid.setPadding(new Insets(20, 0, 0, 0));
 
-        exporterGrid.add(new Label("Exporter"), 0, 0); exporterGrid.add(expNameField, 1, 0);
-        exporterGrid.add(new Label("Street"), 0, 1); exporterGrid.add(expStreetField, 1, 1);
-        exporterGrid.add(new Label("City"), 0, 2); exporterGrid.add(expCityField, 1, 2);
-        exporterGrid.add(new Label("Postcode"), 0, 3); exporterGrid.add(expPostcodeField, 1, 3);
+        exporterGrid.add(new Label("Expeditor"), 0, 0);
+        exporterGrid.add(expNameField, 1, 0);
+        exporterGrid.add(new Label("Street"), 0, 1);
+        exporterGrid.add(expStreetField, 1, 1);
+        exporterGrid.add(new Label("City"), 0, 2);
+        exporterGrid.add(expCityField, 1, 2);
+        exporterGrid.add(new Label("Postcode"), 0, 3);
+        exporterGrid.add(expPostcodeField, 1, 3);
+        exporterGrid.add(new Label("Country"), 0, 4);
+        exporterGrid.add(expCountryField, 1, 4);
+
+
 
         // Butoane
         Button uploadBtn = new Button("Upload File...");
@@ -199,9 +259,11 @@ public class MainApp extends Application {
                         eoriField.getText(),
                         expStreetField.getText(),
                         expCityField.getText(),
-                        "MD",
+                        expCountryField.getText(),
                         expPostcodeField.getText()
                 );
+
+
 
 
                 // 2. Contact
@@ -212,17 +274,17 @@ public class MainApp extends Application {
                 );
 
 
-
                 // 3. Consignee
                 // înlocuiește blocul:
                 Consignee consignee = new Consignee(
-                        expNameField.getText(),
-                        eoriField.getText(),
-                        expStreetField.getText(),
-                        expCityField.getText(),
-                        "MD",
-                        expPostcodeField.getText()
+                        consigneeNameField.getText(),
+                        "", // fără EORI
+                        consigneeStreetField.getText(),
+                        consigneeCityField.getText(),
+                        consigneeCountryField.getText(),
+                        consigneePostcodeField.getText()
                 );
+
 
                 Representative representative = new Representative(
                         repNameField.getText(),
@@ -232,7 +294,6 @@ public class MainApp extends Application {
                         repPostcodeField.getText(),
                         repCountryField.getText()
                 );
-
 
 
                 // 5. Guarantee + reference
@@ -288,8 +349,30 @@ public class MainApp extends Application {
                         saveFile
                 );
 
-
-
+                stage.setOnCloseRequest(event -> {
+                    SavedFormData formData = new SavedFormData();
+                    formData.expCountry = expCountryField.getText();
+                    formData.exporter = expNameField.getText();
+                    formData.expStreet = expStreetField.getText();
+                    formData.expCity = expCityField.getText();
+                    formData.expPostcode = expPostcodeField.getText();
+                    formData.contactName = contactNameField.getText();
+                    formData.contactPhone = contactPhoneField.getText();
+                    formData.contactEmail = contactEmailField.getText();
+                    formData.repName = repNameField.getText();
+                    formData.repCui = repCuiField.getText();
+                    formData.repStreet = repStreetField.getText();
+                    formData.repCity = repCityField.getText();
+                    formData.repPostcode = repPostcodeField.getText();
+                    formData.repCountry = repCountryField.getText();
+                    formData.guaranteeNumber = guaranteeNumberField.getText();
+                    formData.guaranteeCode = guaranteeCodeField.getText();
+                    formData.guaranteeAmount = guaranteeAmountField.getText();
+                    formData.declarationType = declarationTypeBox.getValue();
+                    formData.declarationDetail = addDeclTypeBox.getValue();
+                    formData.guaranteeType = guaranteeTypeBox.getValue();
+                    md.ncts.util.SavedDataStorage.save(formData);
+                });
 
 
                 showAlert("✅ JSON salvat cu succes!");
@@ -299,34 +382,50 @@ public class MainApp extends Application {
 
         HBox buttons = new HBox(10, uploadBtn, genBtn);
         buttons.setAlignment(Pos.CENTER_LEFT);
-        HBox actorSection = new HBox(50, exporterGrid, contactGrid);
+
+        HBox actorSection = new HBox(50, exporterGrid, contactGrid, consigneeGrid);
         actorSection.setAlignment(Pos.CENTER_LEFT);
 
-        HBox dataBoxes = new HBox(50, exporterGrid, contactGrid);
+
+
+
         GridPane combinedGrid = new GridPane();
         combinedGrid.setHgap(50);
         combinedGrid.add(grid, 0, 0);
         combinedGrid.add(repGrid, 1, 0);
 
-        VBox root = new VBox(20, title, combinedGrid, fileLabel, buttons, actorSection, new Separator(), new HBox(50, exporterGrid, contactGrid));
-
+        VBox root = new VBox(20);
+        root.getChildren().addAll(
+                title,
+                combinedGrid,
+                fileLabel,
+                buttons,
+                new Separator(),
+                actorSection,
+                reprezentantBox
+        );
 
         root.setPadding(new Insets(20));
         root.getStyleClass().add("root");
-
-// ✅ AICI setezi stilul
         fileLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
-        ScrollPane scrollPane = new ScrollPane(root);
-        scrollPane.setFitToWidth(true);
-        Scene scene = new Scene(scrollPane, 950, 750);
 
+        ScrollPane scrollPane = new ScrollPane(root);
+        root.setMinHeight(Region.USE_PREF_SIZE);
+        scrollPane.setFitToHeight(true);
+
+        scrollPane.setFitToWidth(true);
+        Scene scene = new Scene(scrollPane, 1200, 800);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+
         stage.setScene(scene);
         stage.setTitle("NCTS - Generator JSON");
+        stage.setMaximized(true);
         stage.show();
-    }
 
-    private void showAlert(String msg) {
+
+
+    }
+        private void showAlert(String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText(msg);
         a.setHeaderText(null);

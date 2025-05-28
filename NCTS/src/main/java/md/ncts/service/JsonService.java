@@ -100,14 +100,15 @@ public class JsonService {
             root.put("additionalRef", new ArrayList<>());
 
             Map<String, Object> applicant = Map.of(
-                    "EORINumber", "",
-                    "name", exporter.getName(),
-                    "street", exporter.getStreet(),
-                    "city", exporter.getCity(),
-                    "postcode", exporter.getPostcode(),
-                    "country", exporter.getCountry()
+                    "EORINumber", representative.getCui(),
+                    "name", representative.getName(),
+                    "street", representative.getStreet(),
+                    "city", representative.getCity(),
+                    "postcode", representative.getPostcode(),
+                    "country", representative.getCountry()
             );
             root.put("applicant", applicant);
+
 
             root.put("applicantContact", Map.of(
                     "contactFor", "APPLICANT",
@@ -129,7 +130,15 @@ public class JsonService {
                     "transportType", "BORDER"
             )));
             root.put("chainAddActors", new ArrayList<>());
-            root.put("consignor", applicant);
+            Map<String, Object> consignor = Map.of(
+                    "EORINumber", exporter.getEori(),
+                    "name", exporter.getName(),
+                    "street", exporter.getStreet(),
+                    "city", exporter.getCity(),
+                    "postcode", exporter.getPostcode(),
+                    "country", exporter.getCountry()
+            );
+            root.put("consignor", consignor);
 
             root.put("consignee", Map.of(
                     "name", consignee.getName(),
