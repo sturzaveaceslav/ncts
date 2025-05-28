@@ -6,13 +6,15 @@ public class Exporter {
     private String street;
     private String city;
     private String country;
+    private String postcode;
 
-    public Exporter(String name, String eori, String street, String city, String country) {
+    public Exporter(String name, String eori, String street, String city, String country, String postcode) {
         this.name = name;
         this.eori = eori;
         this.street = street;
         this.city = city;
         this.country = country;
+        this.postcode = postcode;
     }
 
     public String getName() {
@@ -35,6 +37,10 @@ public class Exporter {
         return country;
     }
 
+    public String getPostcode() {
+        return postcode;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -55,6 +61,10 @@ public class Exporter {
         this.country = country;
     }
 
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
     @Override
     public String toString() {
         return "Exporter{" +
@@ -63,6 +73,7 @@ public class Exporter {
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
+                ", postcode='" + postcode + '\'' +
                 '}';
     }
 }

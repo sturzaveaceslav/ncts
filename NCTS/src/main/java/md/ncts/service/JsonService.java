@@ -1,172 +1,209 @@
-// ✅ JsonService.java - generează JSON complet, fără erori
 package md.ncts.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import javafx.stage.FileChooser;
 import md.ncts.model.*;
-
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class JsonService {
+
+    public static class ItemRow {
+        String cod_Tarifar;
+        String Description;
+        String unit_masura;
+        double Cantitate;
+        double Suma;
+        double NETT;
+        double BRUTT;
+    }
+
     public static void generateJson(
-            Applicant applicant,
-            ApplicantContact contact,
-            Consignee consignee,
-            Representative representative,
-            List<Guarantee> guarantees,
-            List<HouseConsignment> houseConsignments,
-            BorderTransport borderTransport,
-            String declarationType,
-            String grossMass,
-            String totalValue,
-            String customsOfficeDeparture,
-            String customsOfficeDestination,
-            File saveFile
+            Exporter exporter,
+            Contact contact,
+            String truckNumber,
+            String departureOffice,
+            String destinationOffice,
+            double grossMass,
+            double invoiceValue,
+            String guaranteeNumber,
+            String guaranteeCode,
+            double guaranteeAmount,
+            String packageType,
+            String shippingMarks,
+            File excelFile,
+            File outputFile
     ) {
-        Map<String, Object> root = new LinkedHashMap<>();
+        try {
+            List<ItemRow> rows = ExcelService.readRows(excelFile);
+            Map<String, List<ItemRow>> grouped = rows.stream()
+                    .collect(Collectors.groupingBy(r -> r.cod_Tarifar));
 
-        root.put("declarationType", declarationType);
-        root.put("languageAtDeparture", "RO");
-        root.put("declarationAcceptanceDateTime", "2024-01-01T10:00:00Z");
-        root.put("departureCountry", "MD");
-        root.put("customsOfficeOfDeparture", customsOfficeDeparture);
-        root.put("customsOfficeOfDestination", customsOfficeDestination);
-        root.put("departureOffice", Map.of("code", customsOfficeDeparture));
-        root.put("destinationOffice", Map.of("code", customsOfficeDestination));
-        root.put("customsOffice", Map.of("code", customsOfficeDeparture));
+            List<Map<String, Object>> houseItems = new ArrayList<>();
+            int index = 1;
+            for (String hsCode : grouped.keySet()) {
+                List<ItemRow> group = grouped.get(hsCode);
+                String desc = group.get(0).Description;
+                double qty = group.stream().mapToDouble(r -> r.Cantitate).sum();
+                double val = group.stream().mapToDouble(r -> r.Suma).sum();
+                double nett = group.stream().mapToDouble(r -> r.NETT).sum();
+                double brut = group.stream().mapToDouble(r -> r.BRUTT).sum();
 
-        root.put("applicant", Map.of(
-                "name", applicant.getName(),
-                "eoriNumber", applicant.getEoriNumber(),
-                "address", Map.of(
-                        "street", applicant.getStreet(),
-                        "city", applicant.getCity(),
-                        "country", applicant.getCountry()
-                )
-        ));
+                Map<String, Object> item = new LinkedHashMap<>();
+                item.put("additionalInfo", new ArrayList<>());
+                item.put("additionalRef", new ArrayList<>());
+                item.put("chainAddActors", new ArrayList<>());
+                item.put("dangerousGoods", new ArrayList<>());
+                item.put("decItmNber", index);
+                item.put("goodsDescription", desc);
+                item.put("grossMass", brut);
+                item.put("hsCode", hsCode);
 
-        root.put("applicantContact", Map.of(
-                "contactFor", "APPLICANT",
-                "name", contact.getName(),
-                "phoneNumber", contact.getPhone(),
-                "emailAddress", contact.getEmail()
-        ));
+                Map<String, Object> taxes = new LinkedHashMap<>();
+                taxes.put("currency", "EUR");
+                taxes.put("quantity1", (int) qty);
+                taxes.put("quantity2", 0);
+                taxes.put("statisticalValue", val);
+                item.put("itemTaxes", taxes);
 
-        root.put("representative", Map.of(
-                "name", representative.getName(),
-                "eoriNumber", representative.getEoriNumber(),
-                "address", Map.of(
-                        "street", representative.getStreet(),
-                        "city", representative.getCity(),
-                        "country", representative.getCountry()
-                )
-        ));
+                Map<String, Object> packType = new LinkedHashMap<>();
+                packType.put("code", packageType);
+                packType.put("name", "definitie comuna");
+                packType.put("packageKind", "PACKED");
 
-        root.put("borderTransport", List.of(Map.of(
-                "transportType", borderTransport.getTransportType(),
-                "identificationNumber", borderTransport.getIdentificationNumber(),
-                "identificationType", Map.of(
-                        "code", borderTransport.getIdType().getCode(),
-                        "description", borderTransport.getIdType().getDescription(),
-                        "active", borderTransport.getIdType().isActive()
-                ),
+                Map<String, Object> packaging = new LinkedHashMap<>();
+                packaging.put("packType", packType);
+                packaging.put("packageNumber", 1);
+                packaging.put("sequence", 1);
+                packaging.put("shippingMark", shippingMarks);
+                item.put("packagings", List.of(packaging));
 
-                "nationality", borderTransport.getNationality(),
-                "sequence", 1
-        )));
+                item.put("previousDoc", new ArrayList<>());
+                item.put("sequence", index);
+                item.put("supportingDoc", new ArrayList<>());
+                item.put("transportDoc", new ArrayList<>());
+                houseItems.add(item);
+                index++;
+            }
 
-        root.put("consignee", Map.of(
-                "name", consignee.getName(),
-                "eoriNumber", consignee.getEoriNumber(),
-                "address", Map.of(
-                        "street", consignee.getStreet(),
-                        "city", consignee.getCity(),
-                        "country", consignee.getCountry()
-                )
-        ));
+            Map<String, Object> root = new LinkedHashMap<>();
+            root.put("addDecType", Map.of("code", "A", "name", "Standard customs declaration "));
+            root.put("additionalInfo", new ArrayList<>());
+            root.put("additionalRef", new ArrayList<>());
 
-        root.put("consignor", Map.of(
-                "name", applicant.getName(),
-                "address", Map.of(
-                        "street", applicant.getStreet(),
-                        "city", applicant.getCity(),
-                        "country", applicant.getCountry()
-                )
-        ));
+            Map<String, Object> applicant = Map.of(
+                    "EORINumber", "",
+                    "name", exporter.getName(),
+                    "street", exporter.getStreet(),
+                    "city", exporter.getCity(),
+                    "postcode", exporter.getPostcode(),
+                    "country", "MD"
+            );
+            root.put("applicant", applicant);
 
-        root.put("grossMass", Double.parseDouble(grossMass));
-        root.put("statisticalValue", Map.of("value", Double.parseDouble(totalValue), "currency", "EUR"));
-
-        // Guarantees
-        List<Object> guaranteeList = new ArrayList<>();
-        for (Guarantee g : guarantees) {
-            Map<String, Object> gMap = new LinkedHashMap<>();
-            gMap.put("sequenceNumber", g.getSequence());
-            gMap.put("guaranteeTypeCode", g.getTypeCode());
-            gMap.put("type", Map.of(
-                    "code", g.getTypeCode(),
-                    "description", g.getTypeCode().equals("1") ? "Comprehensive guarantee" : g.getTypeCode().equals("0") ? "None" : "Individual guarantee",
-                    "comprehensive", g.getTypeCode().equals("1"),
-                    "withGrn", true,
-                    "withRfc", true,
-                    "monitoringFlag", 1
+            root.put("applicantContact", Map.of(
+                    "contactFor", "APPLICANT",
+                    "name", contact.getName(),
+                    "phone", contact.getPhone(),
+                    "email", contact.getEmail()
             ));
 
-            List<Object> refs = new ArrayList<>();
-            for (GuaranteeReference ref : g.getReferences()) {
-                refs.add(Map.of(
-                        "sequenceNumber", ref.getSequence(),
-                        "grn", ref.getGrn(),
-                        "accessCode", ref.getAccessCode(),
-                        "amount", Map.of("value", ref.getCoveredAmount(), "currency", ref.getCurrency())
-                ));
-            }
-            gMap.put("guaranteeReferences", refs);
-            guaranteeList.add(gMap);
-        }
-        root.put("guarantees", guaranteeList);
+            root.put("attachments", new ArrayList<>());
+            root.put("authorisations", new ArrayList<>());
+            root.put("bindingItinerary", Map.of("code", 0, "name", "No"));
+            root.put("borderMot", Map.of("code", 3, "mode", "BORDER", "name", "Road transport"));
+            root.put("borderTransport", List.of(Map.of(
+                    "custOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)"),
+                    "idType", Map.of("code", 30, "description", "Registration Number of the Road Vehicle", "active", true),
+                    "identificationNumber", truckNumber,
+                    "nationality", "MD",
+                    "sequence", 1,
+                    "transportType", "BORDER"
+            )));
+            root.put("chainAddActors", new ArrayList<>());
+            root.put("consignee", applicant);
+            root.put("consignor", Map.of(
+                    "name", "S.C. \"INTER CARS ROMANIA\"SRL",
+                    "street", "STR. CIMPUL PIINII NR.3-5",
+                    "city", "CLUJ-NAPOCA",
+                    "postcode", "400451",
+                    "country", "RO"
+            ));
+            root.put("customsOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)", "riskEnabled", false));
+            root.put("declarationType", "T1");
+            root.put("departureOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)", "riskEnabled", false));
+            root.put("destinationOffice", Map.of("code", destinationOffice, "name", "CHISINAU2 (PVI, Cricova)"));
+            root.put("dispatch", Map.of("code", "RO", "name", "Romania"));
+            root.put("goodsLocation", Map.of(
+                    "customsOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)"),
+                    "locationType", Map.of("code", "A", "description", "Designated Location"),
+                    "qualifier", Map.of("code", "V", "description", "Customs Office Identifier")
+            ));
+            root.put("grossMass", grossMass);
+            root.put("guarantees", List.of(Map.of(
+                    "sequence", 1,
+                    "guaranteeReferences", List.of(Map.of(
+                            "accessCode", guaranteeCode,
+                            "grn", guaranteeNumber,
+                            "currency", "MDL",
+                            "coveredAmount", guaranteeAmount,
+                            "sequence", 1
+                    )),
+                    "type", Map.of(
+                            "code", "1",
+                            "description", "Comprehensive guarantee",
+                            "comprehensive", true,
+                            "withGrn", true,
+                            "withRfc", true,
+                            "monitoringFlag", 1
+                    )
+            )));
+            root.put("houseConsignments", List.of(Map.of(
+                    "sequence", 1,
+                    "houseItems", houseItems,
+                    "grossMass", grossMass
+            )));
+            root.put("languageAtDeparture", "RO");
+            root.put("loadingPlace", Map.of("unCode", "ROCLJ"));
+            root.put("representative", applicant);
+            root.put("representativeStatus", 2);
+            root.put("supportingDoc", List.of(Map.of(
+                    "docClass", "SUPPORTING_DOC",
+                    "docType", "N380",
+                    "itmNber", 1,
+                    "reference", "RO1025002496",
+                    "sequence", 1
+            )));
+            root.put("transportDoc", List.of(Map.of(
+                    "docClass", "TRANSPORT_DOC",
+                    "docType", "N760",
+                    "reference", "MD 0850448",
+                    "sequence", 1
+            )));
+            root.put("ucrReference", "002");
 
-        // House Consignments
-        List<Object> consList = new ArrayList<>();
-        for (HouseConsignment c : houseConsignments) {
-            Map<String, Object> cMap = new LinkedHashMap<>();
-            cMap.put("sequenceNumber", c.getSequenceNumber());
-            cMap.put("grossMass", c.getGrossMass());
-
-            List<Object> items = new ArrayList<>();
-            for (HouseItem hi : c.getHouseItems()) {
-                Map<String, Object> iMap = new LinkedHashMap<>();
-                iMap.put("sequenceNumber", hi.getSequenceNumber());
-                iMap.put("commodity", Map.of("hsCode", hi.getHsCode(), "description", hi.getDescription()));
-                iMap.put("goodsMeasure", Map.of(
-                        "grossMass", hi.getGrossMass(),
-                        "netMass", hi.getGrossMass() * 0.95,
-                        "supplementaryUnits", hi.getQuantity()
-                ));
-                iMap.put("statisticalValue", Map.of("value", hi.getStatisticalValue(), "currency", "EUR"));
-
-                List<Object> packaging = new ArrayList<>();
-                for (Packaging p : hi.getPackagings()) {
-                    packaging.add(Map.of(
-                            "sequenceNumber", p.getSequence(),
-                            "typeCode", p.getTypeCode(),
-                            "numberOfPackages", p.getNumberOfPackages(),
-                            "shippingMarks", p.getShippingMarks()
-                    ));
-                }
-                iMap.put("packagings", packaging);
-                items.add(iMap);
-            }
-            cMap.put("houseItems", items);
-            consList.add(cMap);
-        }
-        root.put("houseConsignments", consList);
-
-        try (FileWriter writer = new FileWriter(saveFile)) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            gson.toJson(root, writer);
+            try (FileWriter writer = new FileWriter(outputFile)) {
+                gson.toJson(root, writer);
+            }
+
+            Map<String, String> saved = new HashMap<>();
+            saved.put("name", contact.getName());
+            saved.put("phone", contact.getPhone());
+            saved.put("email", contact.getEmail());
+            saved.put("exporter", exporter.getName());
+            saved.put("city", exporter.getCity());
+            saved.put("street", exporter.getStreet());
+            saved.put("postcode", exporter.getPostcode());
+            saved.put("guaranteeCode", guaranteeCode);
+            saved.put("guaranteeNumber", guaranteeNumber);
+            saved.put("guaranteeAmount", String.valueOf(guaranteeAmount));
+            Files.write(Paths.get("config.json"), gson.toJson(saved).getBytes());
+
         } catch (Exception e) {
             e.printStackTrace();
         }

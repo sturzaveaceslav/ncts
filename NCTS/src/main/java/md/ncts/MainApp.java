@@ -160,20 +160,23 @@ public class MainApp extends Application {
             if (saveFile != null) {
 
                 // 1. Applicant
-                Applicant applicant = new Applicant(
+                Exporter exporter = new Exporter(
                         expNameField.getText(),
                         eoriField.getText(),
                         expStreetField.getText(),
                         expCityField.getText(),
-                        "MD"
+                        "MD",
+                        expPostcodeField.getText()
                 );
 
+
                 // 2. Contact
-                ApplicantContact contact = new ApplicantContact(
+                Contact contact = new Contact(
                         contactNameField.getText(),
                         contactPhoneField.getText(),
                         contactEmailField.getText()
                 );
+
 
 
                 // 3. Consignee
@@ -231,20 +234,22 @@ public class MainApp extends Application {
                 );
                 ;
                 JsonService.generateJson(
-                        applicant,
+                        exporter,   // <- CORECT
                         contact,
-                        consignee,
-                        rep,
-                        guarantees,
-                        houseConsignments,
-                        borderTransport,                           // ✅ 7
-                        declarationTypeBox.getValue(),             // ✅ 8
-                        grossMassField.getText(),                  // ✅ 9
-                        invoiceValueField.getText(),               // ✅ 10
-                        depOfficeField.getText(),                  // ✅ 11
-                        destOfficeField.getText(),                 // ✅ 12
-                        saveFile                                   // ✅ 13
+                        truckField.getText(),
+                        depOfficeField.getText(),
+                        destOfficeField.getText(),
+                        Double.parseDouble(grossMassField.getText()),
+                        Double.parseDouble(invoiceValueField.getText()),
+                        guaranteeNumberField.getText(),
+                        guaranteeCodeField.getText(),
+                        Double.parseDouble(guaranteeAmountField.getText()),
+                        packTypeField.getText(),
+                        shippingMarksField.getText(),
+                        selectedExcelFile,
+                        saveFile
                 );
+
 
 
 
