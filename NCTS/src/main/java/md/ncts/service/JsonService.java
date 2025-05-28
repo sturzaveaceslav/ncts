@@ -2,9 +2,10 @@ package md.ncts.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javafx.stage.FileChooser;
 import md.ncts.model.*;
-import java.io.*;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -13,18 +14,20 @@ import java.util.stream.Collectors;
 public class JsonService {
 
     public static class ItemRow {
-        String cod_Tarifar;
-        String Description;
-        String unit_masura;
-        double Cantitate;
-        double Suma;
-        double NETT;
-        double BRUTT;
+        public String cod_Tarifar;
+        public String Description;
+        public String unit_masura;
+        public double Cantitate;
+        public double Suma;
+        public double NETT;
+        public double BRUTT;
     }
 
     public static void generateJson(
             Exporter exporter,
             Contact contact,
+            Consignee consignee,
+            Representative representative,
             String truckNumber,
             String departureOffice,
             String destinationOffice,
@@ -36,7 +39,7 @@ public class JsonService {
             String packageType,
             String shippingMarks,
             File excelFile,
-            File outputFile
+            File saveFile
     ) {
         try {
             List<ItemRow> rows = ExcelService.readRows(excelFile);
@@ -70,14 +73,15 @@ public class JsonService {
                 taxes.put("statisticalValue", val);
                 item.put("itemTaxes", taxes);
 
-                Map<String, Object> packType = new LinkedHashMap<>();
-                packType.put("code", packageType);
-                packType.put("name", "definitie comuna");
-                packType.put("packageKind", "PACKED");
+                Map<String, Object> packType = Map.of(
+                        "code", packageType,
+                        "name", "definitie comuna",
+                        "packageKind", "PACKED"
+                );
 
                 Map<String, Object> packaging = new LinkedHashMap<>();
                 packaging.put("packType", packType);
-                packaging.put("packageNumber", 1);
+                packaging.put("packageNumber", index == 1 ? 1 : 0);
                 packaging.put("sequence", 1);
                 packaging.put("shippingMark", shippingMarks);
                 item.put("packagings", List.of(packaging));
@@ -101,7 +105,7 @@ public class JsonService {
                     "street", exporter.getStreet(),
                     "city", exporter.getCity(),
                     "postcode", exporter.getPostcode(),
-                    "country", "MD"
+                    "country", exporter.getCountry()
             );
             root.put("applicant", applicant);
 
@@ -118,21 +122,23 @@ public class JsonService {
             root.put("borderMot", Map.of("code", 3, "mode", "BORDER", "name", "Road transport"));
             root.put("borderTransport", List.of(Map.of(
                     "custOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)"),
-                    "idType", Map.of("code", 30, "description", "Registration Number of the Road Vehicle", "active", true),
+                    "idType", Map.of("code", 30, "description", "Registration Number of the Road Vehicle"),
                     "identificationNumber", truckNumber,
                     "nationality", "MD",
                     "sequence", 1,
                     "transportType", "BORDER"
             )));
             root.put("chainAddActors", new ArrayList<>());
-            root.put("consignee", applicant);
-            root.put("consignor", Map.of(
-                    "name", "S.C. \"INTER CARS ROMANIA\"SRL",
-                    "street", "STR. CIMPUL PIINII NR.3-5",
-                    "city", "CLUJ-NAPOCA",
-                    "postcode", "400451",
-                    "country", "RO"
+            root.put("consignor", applicant);
+
+            root.put("consignee", Map.of(
+                    "name", consignee.getName(),
+                    "street", consignee.getStreet(),
+                    "city", consignee.getCity(),
+                    "postcode", consignee.getPostcode(),
+                    "country", consignee.getCountry()
             ));
+
             root.put("customsOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)", "riskEnabled", false));
             root.put("declarationType", "T1");
             root.put("departureOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)", "riskEnabled", false));
@@ -144,6 +150,7 @@ public class JsonService {
                     "qualifier", Map.of("code", "V", "description", "Customs Office Identifier")
             ));
             root.put("grossMass", grossMass);
+
             root.put("guarantees", List.of(Map.of(
                     "sequence", 1,
                     "guaranteeReferences", List.of(Map.of(
@@ -162,15 +169,27 @@ public class JsonService {
                             "monitoringFlag", 1
                     )
             )));
+
             root.put("houseConsignments", List.of(Map.of(
                     "sequence", 1,
                     "houseItems", houseItems,
                     "grossMass", grossMass
             )));
+
             root.put("languageAtDeparture", "RO");
             root.put("loadingPlace", Map.of("unCode", "ROCLJ"));
-            root.put("representative", applicant);
+
+            Map<String, Object> representativeMap = Map.of(
+                    "name", representative.getName(),
+                    "street", representative.getStreet(),
+                    "city", representative.getCity(),
+                    "postcode", representative.getPostcode(),
+                    "country", representative.getCountry(),
+                    "cui", representative.getCui()
+            );
+            root.put("representative", representativeMap);
             root.put("representativeStatus", 2);
+
             root.put("supportingDoc", List.of(Map.of(
                     "docClass", "SUPPORTING_DOC",
                     "docType", "N380",
@@ -187,7 +206,7 @@ public class JsonService {
             root.put("ucrReference", "002");
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            try (FileWriter writer = new FileWriter(outputFile)) {
+            try (FileWriter writer = new FileWriter(saveFile)) {
                 gson.toJson(root, writer);
             }
 
@@ -202,6 +221,7 @@ public class JsonService {
             saved.put("guaranteeCode", guaranteeCode);
             saved.put("guaranteeNumber", guaranteeNumber);
             saved.put("guaranteeAmount", String.valueOf(guaranteeAmount));
+
             Files.write(Paths.get("config.json"), gson.toJson(saved).getBytes());
 
         } catch (Exception e) {

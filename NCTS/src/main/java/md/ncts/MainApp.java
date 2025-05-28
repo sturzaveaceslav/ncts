@@ -45,6 +45,14 @@ public class MainApp extends Application {
     private TextField expCityField = new TextField();
     private TextField expPostcodeField = new TextField();
 
+    private TextField repNameField;
+    private TextField repCuiField;
+    private TextField repStreetField;
+    private TextField repCityField;
+    private TextField repPostcodeField;
+    private TextField repCountryField;
+
+
     @Override
     public void start(Stage stage) {
         Label title = new Label("NCTS - Generator JSON");
@@ -99,6 +107,32 @@ public class MainApp extends Application {
         grid.add(new Label("Guarantee Code"), 2, 1); grid.add(guaranteeCodeField, 3, 1);
         grid.add(new Label("Guarantee Amount (EUR)"), 2, 2); grid.add(guaranteeAmountField, 3, 2);
         grid.add(new Label("Tip Garanție"), 2, 3); grid.add(guaranteeTypeBox, 3, 3);
+        GridPane repGrid = new GridPane();
+        repGrid.setHgap(15);
+        repGrid.setVgap(10);
+        repGrid.setPadding(new Insets(20, 0, 0, 0));
+
+// Inițializăm câmpurile
+        repNameField = new TextField();
+        repCuiField = new TextField();
+        repStreetField = new TextField();
+        repCityField = new TextField();
+        repPostcodeField = new TextField();
+        repCountryField = new TextField("MD");
+
+// Adăugăm în repGrid
+        repGrid.add(new Label("Representative Name"), 0, 0); repGrid.add(repNameField, 1, 0);
+        repGrid.add(new Label("EORI / Cod Fiscal"), 0, 1); repGrid.add(repCuiField, 1, 1);
+        repGrid.add(new Label("Street"), 0, 2); repGrid.add(repStreetField, 1, 2);
+        repGrid.add(new Label("City"), 0, 3); repGrid.add(repCityField, 1, 3);
+        repGrid.add(new Label("Postcode"), 0, 4); repGrid.add(repPostcodeField, 1, 4);
+        repGrid.add(new Label("Country"), 0, 5); repGrid.add(repCountryField, 1, 5);
+
+        VBox garantieBox = new VBox(20, grid);          // partea de sus (garantie, date generale)
+        VBox reprezentantBox = new VBox(20, repGrid);   // partea de jos (reprezentant)
+
+        VBox rightBox = new VBox(30, garantieBox, reprezentantBox);
+
 
         // Secțiune Exportator
         GridPane exporterGrid = new GridPane();
@@ -182,22 +216,24 @@ public class MainApp extends Application {
                 // 3. Consignee
                 // înlocuiește blocul:
                 Consignee consignee = new Consignee(
-                        expNameField.getText(),           // Numele firmei
-                        eoriField.getText(),              // EORI același
-                        expStreetField.getText(),         // strada
-                        expCityField.getText(),           // oraș
-                        "MD"                              // țară
+                        expNameField.getText(),
+                        eoriField.getText(),
+                        expStreetField.getText(),
+                        expCityField.getText(),
+                        "MD",
+                        expPostcodeField.getText()
+                );
+
+                Representative representative = new Representative(
+                        repNameField.getText(),
+                        repCuiField.getText(),
+                        repStreetField.getText(),
+                        repCityField.getText(),
+                        repPostcodeField.getText(),
+                        repCountryField.getText()
                 );
 
 
-                // 4. Representative
-                Representative rep = new Representative(
-                        "Declarant SRL",
-                        "EORI987654321",
-                        "Str. Decebal 12",
-                        "Chișinău",
-                        "MD"
-                );
 
                 // 5. Guarantee + reference
                 GuaranteeReference ref = new GuaranteeReference(
@@ -234,8 +270,10 @@ public class MainApp extends Application {
                 );
                 ;
                 JsonService.generateJson(
-                        exporter,   // <- CORECT
+                        exporter,
                         contact,
+                        consignee,        // <-- ADĂUGAT
+                        representative,   // <-- ADĂUGAT
                         truckField.getText(),
                         depOfficeField.getText(),
                         destOfficeField.getText(),
@@ -253,6 +291,7 @@ public class MainApp extends Application {
 
 
 
+
                 showAlert("✅ JSON salvat cu succes!");
             }
         });
@@ -264,7 +303,12 @@ public class MainApp extends Application {
         actorSection.setAlignment(Pos.CENTER_LEFT);
 
         HBox dataBoxes = new HBox(50, exporterGrid, contactGrid);
-        VBox root = new VBox(20, title, grid, fileLabel, buttons, dataBoxes);
+        GridPane combinedGrid = new GridPane();
+        combinedGrid.setHgap(50);
+        combinedGrid.add(grid, 0, 0);
+        combinedGrid.add(repGrid, 1, 0);
+
+        VBox root = new VBox(20, title, combinedGrid, fileLabel, buttons, actorSection, new Separator(), new HBox(50, exporterGrid, contactGrid));
 
 
         root.setPadding(new Insets(20));
@@ -272,7 +316,10 @@ public class MainApp extends Application {
 
 // ✅ AICI setezi stilul
         fileLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
-        Scene scene = new Scene(root, 950, 750);
+        ScrollPane scrollPane = new ScrollPane(root);
+        scrollPane.setFitToWidth(true);
+        Scene scene = new Scene(scrollPane, 950, 750);
+
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("NCTS - Generator JSON");

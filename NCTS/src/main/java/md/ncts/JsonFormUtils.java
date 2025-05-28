@@ -16,6 +16,9 @@ public class JsonFormUtils {
     private static TextField exporterPostcodeField = new TextField();    // nou
     private static TextField exporterEoriField = new TextField();
     private static TextField exporterVatField = new TextField();
+    private static TextField consigneeCityField = new TextField();
+    private static TextField consigneePostcodeField = new TextField();
+
 
     // Consignee fields
     private static TextField consigneeNameField = new TextField();
@@ -45,12 +48,15 @@ public class JsonFormUtils {
                 new Label("CONSIGNEE"),
                 new Label("Name"), consigneeNameField,
                 new Label("Address"), consigneeAddressField,
+                new Label("City"), consigneeCityField,
+                new Label("Postcode"), consigneePostcodeField,
                 new Label("Country"), consigneeCountryField,
                 new Label("EORI"), consigneeEoriField,
                 new Label("VAT Number"), consigneeVatField
         );
         return box;
     }
+
 
     public static Exporter getExporterFromForm() {
         return new Exporter(
@@ -66,10 +72,12 @@ public class JsonFormUtils {
     public static Consignee getConsigneeFromForm() {
         return new Consignee(
                 consigneeNameField.getText(),
-                consigneeAddressField.getText(),
-                consigneeCountryField.getText(),
                 consigneeEoriField.getText(),
-                consigneeVatField.getText()
+                consigneeAddressField.getText(),
+                consigneeCityField.getText(),
+                consigneeCountryField.getText(),
+                consigneePostcodeField.getText()
         );
     }
+
 }
