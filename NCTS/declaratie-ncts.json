@@ -1,0 +1,6148 @@
+{
+  "declarationType": "A",
+  "exporter": {
+    "name": "INTERCARS",
+    "street": "BIDA25",
+    "city": "BUCURESTI",
+    "postcode": "ASDFASF",
+    "country": "ROMANIA"
+  },
+  "consignee": {
+    "name": "",
+    "street": "",
+    "city": "",
+    "postcode": "",
+    "country": ""
+  },
+  "transit": {
+    "countries": [
+      "RO"
+    ]
+  },
+  "guarantee": {
+    "type": "0"
+  },
+  "customsOfficeOfDeparture": {
+    "referenceNumber": "MD203000"
+  },
+  "declarationOffice": {
+    "referenceNumber": "MD203000"
+  },
+  "goodsLocation": {
+    "identificationType": "A",
+    "typeOfLocation": "1",
+    "location": "MD203000",
+    "country": "MD",
+    "UNLocode": "MDKIV"
+  },
+  "houseConsignments": [
+    {
+      "sequence": 1,
+      "grossMass": 5731.54,
+      "houseItems": [
+        {
+          "decItmNber": 1,
+          "hsCode": "340399",
+          "goodsDescription": "Kit schimb ulei transmisie automata",
+          "grossMass": 19.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 181.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 2,
+          "hsCode": "340399",
+          "goodsDescription": "Ulei transmisie ATF",
+          "grossMass": 98.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 1134.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 3,
+          "hsCode": "340399",
+          "goodsDescription": "Kit schimb ulei transmisie automata",
+          "grossMass": 10.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 113.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 4,
+          "hsCode": "401699",
+          "goodsDescription": "Kit reparatie bascula",
+          "grossMass": 1.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 43.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 5,
+          "hsCode": "401699",
+          "goodsDescription": "Set rulmenti, Carcasa axa spate",
+          "grossMass": 7.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 146.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 6,
+          "hsCode": "401699",
+          "goodsDescription": "POMPA",
+          "grossMass": 5.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 78.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 7,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 20.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 299.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 8,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.88,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 13.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 9,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 4.86,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 59.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 10,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 1.82,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 46.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 11,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 13.98,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 148.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 12,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 15.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 162.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 13,
+          "hsCode": "401699",
+          "goodsDescription": "Suport cutie viteze",
+          "grossMass": 4.55,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 218.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 14,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 106.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 15,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 4.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 46.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 16,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 15.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 224.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 17,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 1.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 40.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 18,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 0.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 14.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 19,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 8.72,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 171.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 20,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 7.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 174.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 21,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 31.92,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 324.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 22,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 7.29,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 128.25
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 23,
+          "hsCode": "401699",
+          "goodsDescription": "Suport cutie viteze",
+          "grossMass": 1.92,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 52.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 24,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 5.32,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 153.44
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 25,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 7.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 219.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 26,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 4.56,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 131.52
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 27,
+          "hsCode": "401699",
+          "goodsDescription": "Suport cutie viteze",
+          "grossMass": 0.45,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 10.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 28,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 0.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 16.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 29,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 10.41
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 30,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 35.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 31,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.5,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 107.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 32,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 35.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 33,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 3.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 68.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 34,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 21.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 35,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 15.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 36,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.64,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 24.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 37,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 7.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 38,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 8.04,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 252.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 39,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 5.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 114.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 40,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 8.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 41,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 9.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 302.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 42,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 7.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 206.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 43,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 65.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 44,
+          "hsCode": "401699",
+          "goodsDescription": "ConsolДѓ fixare motor",
+          "grossMass": 1.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 45,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 36.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 46,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 2.82,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 99.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 47,
+          "hsCode": "401699",
+          "goodsDescription": "Capac cremaliera de directie",
+          "grossMass": 0.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 7.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 48,
+          "hsCode": "401699",
+          "goodsDescription": "Rulment flansa Mc Pherson",
+          "grossMass": 6.3,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 162.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 49,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 0.94,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 15.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 50,
+          "hsCode": "401699",
+          "goodsDescription": "Rulment flansa Mc Pherson",
+          "grossMass": 8.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 216.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 51,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 3.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 45.27
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 52,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.03,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 12.81
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 53,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.06,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 26.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 54,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 7.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 138.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 55,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 6.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 99.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 56,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.64,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 46.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 57,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.72,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 14.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 58,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 12.08
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 59,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 5.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 145.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 60,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 11.76,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 266.64
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 61,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 8.82,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 199.98
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 62,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 2.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.32
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 63,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 5.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 158.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 64,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 8.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 136.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 65,
+          "hsCode": "401699",
+          "goodsDescription": "Amortizor suspensie Mc Pherson",
+          "grossMass": 15.0,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 220.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 66,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 41.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 67,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 5.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 90.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 68,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 15.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 156.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 69,
+          "hsCode": "401699",
+          "goodsDescription": "Tampon motor",
+          "grossMass": 1.78,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 31.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 70,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.76,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 15.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 71,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.76,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 8.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 72,
+          "hsCode": "401699",
+          "goodsDescription": "Suport planetara",
+          "grossMass": 5.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 104.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 73,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 1.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 144.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 74,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 1.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 39.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 75,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 0.27,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 7.81
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 76,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 0.45,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 13.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 77,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 0.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 30.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 78,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 0.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 20.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 79,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 2.43,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 87.39
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 80,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 0.27,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 9.71
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 81,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 28.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 82,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 2.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 45.04
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 83,
+          "hsCode": "401699",
+          "goodsDescription": "Kit protectie praf amortizor",
+          "grossMass": 9.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 125.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 84,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 4.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 85,
+          "hsCode": "401699",
+          "goodsDescription": "BUCSA",
+          "grossMass": 0.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 10.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 86,
+          "hsCode": "731815",
+          "goodsDescription": "Elemente fixare bascula",
+          "grossMass": 0.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 19.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 87,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 11.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 56.07
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 88,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 4.58,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 36.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 89,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 4.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 40.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 90,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 8.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 37.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 91,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 19.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 105.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 92,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 9.64,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 89.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 93,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 7.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 42.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 94,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 7.98,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 37.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 95,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 7.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 44.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 96,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 28.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 222.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 97,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 5.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 45.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 98,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 11.94,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 127.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 99,
+          "hsCode": "732020",
+          "goodsDescription": "Arc suspensie",
+          "grossMass": 14.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 84.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 100,
+          "hsCode": "848280",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 2.0,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 87.78
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 101,
+          "hsCode": "848280",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 1.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 62.52
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 102,
+          "hsCode": "848280",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 0.92,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 49.69
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 103,
+          "hsCode": "848280",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 0.16,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 9.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 104,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 58.05,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 627.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 105,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 38.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 418.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 106,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 17.75,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 235.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 107,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 31.3,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 399.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 108,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 31.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 317.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 109,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 35.5,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 204.82
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 110,
+          "hsCode": "848360",
+          "goodsDescription": "COROANA VOLANTA",
+          "grossMass": 50.54,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 274.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 111,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 15.66,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 141.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 112,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 3.46,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 30.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 113,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor remorcДѓ",
+          "grossMass": 32.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 257.52
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 114,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 66.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 444.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 115,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 18.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 80.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 116,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 6.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 39.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 117,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 7.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 83.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 118,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 79.04,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 505.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 119,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 17.04,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 115.92
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 120,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 121.86,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 756.72
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 121,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 24.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 220.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 122,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 6.69,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 123,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 25.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 331.02
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 124,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 13.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 123.08
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 125,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 9.88,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 128.96
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 126,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 25.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 331.02
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 127,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 20.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 277.92
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 128,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 8.3,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 122.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 129,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 11.66,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 116.22
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 130,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 12.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 261.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 131,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 3.46,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 93.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 132,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 9.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 138.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 133,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 16.56,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 242.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 134,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 18.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 363.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 135,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 68.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 136,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 19.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 176.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 137,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 14.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 132.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 138,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 44.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 972.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 139,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 14.58,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 211.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 140,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 6.72,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 223.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 141,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 68.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 142,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.62,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 105.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 143,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor remorcДѓ",
+          "grossMass": 68.74,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 758.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 144,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 17.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 298.72
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 145,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 5.46,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 77.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 146,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 5.48,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 135.42
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 147,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 10.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 193.58
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 148,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.29,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 149,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 14.46,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 324.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 150,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 14.37,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 139.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 151,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 33.53,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 324.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 152,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 97.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 497.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 153,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 75.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 675.12
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 154,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 49.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 348.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 155,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 108.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 766.48
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 156,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 101.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 900.16
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 157,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 166.32,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 852.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 158,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 32.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 236.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 159,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 28.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 191.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 160,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 50.64,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 457.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 161,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.49,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 33.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 162,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.49,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 33.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 163,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 13.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 173.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 164,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 48.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 358.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 165,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 11.56,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 142.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 166,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.49,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 33.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 167,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 17.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 134.16
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 168,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 34.16,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 235.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 169,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 11.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 157.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 170,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 29.94,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 244.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 171,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 9.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 136.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 172,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 17.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 158.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 173,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 14.72,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 222.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 174,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 49.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 175,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 53.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 326.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 176,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 13.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 103.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 177,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 126.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 1144.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 178,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 4.01,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 37.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 179,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 9.98,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 68.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 180,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 27.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 391.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 181,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 7.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 106.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 182,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 47.76,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 218.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 183,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 17.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 177.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 184,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 6.84,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 86.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 185,
+          "hsCode": "870880",
+          "goodsDescription": "Amortizor ax fata",
+          "grossMass": 18.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 170.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 186,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 4.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 75.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 187,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 6.0,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 221.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 188,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 5.64,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 165.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 189,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 6.58,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 141.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 190,
+          "hsCode": "870880",
+          "goodsDescription": "BieletДѓ antiruliu",
+          "grossMass": 25.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 257.34
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 191,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 3.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 81.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 192,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 2.04,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 48.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 193,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 10.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 247.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 194,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 5.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 127.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 195,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 14.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 374.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 196,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 2.32,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 67.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 197,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 0.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 11.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 198,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 0.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 11.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 199,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 2.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 120.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 200,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 6.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 148.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 201,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 0.69,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 19.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 202,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 16.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 474.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 203,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 0.32,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 12.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 204,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 1.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 75.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 205,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 5.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 94.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 206,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 7.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 135.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 207,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 7.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 135.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 208,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 2.99,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 60.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 209,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 2.99,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 60.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 210,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 4.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 121.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 211,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 0.43,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 7.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 212,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 0.51,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 51.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 213,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 3.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 90.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 214,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 5.46,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 136.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 215,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 4.3,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 90.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 216,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 3.5,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 99.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 217,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 3.78,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 155.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 218,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 3.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 25.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 219,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 3.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 25.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 220,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 11.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 190.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 221,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 1.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 60.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 222,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 1.74,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 31.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 223,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 3.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 98.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 224,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 10.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 76.25
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 225,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 4.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 46.44
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 226,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 26.74,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 221.55
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 227,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 8.88,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 92.88
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 228,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 9.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 58.88
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 229,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 4.95,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 104.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 230,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 9.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 241.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 231,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 3.0,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 115.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 232,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 3.16,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 119.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 233,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 4.74,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 179.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 234,
+          "hsCode": "870880",
+          "goodsDescription": "Pivot axa fata",
+          "grossMass": 9.23,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 195.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 235,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 0.94,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 27.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 236,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 5.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 258.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 237,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 20.75,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 314.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 238,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 25.92,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 127.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 239,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 6.69,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 150.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 240,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 2.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 64.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 241,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 26.95,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 604.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 242,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 4.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 82.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 243,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 2.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 55.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 244,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 9.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 260.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 245,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 16.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 110.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 246,
+          "hsCode": "870880",
+          "goodsDescription": "BRAT SUSPENSIE",
+          "grossMass": 10.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 119.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 247,
+          "hsCode": "870880",
+          "goodsDescription": "Articulatie bara stabilizatoare",
+          "grossMass": 4.05,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 85.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 248,
+          "hsCode": "870893",
+          "goodsDescription": "Disc ambreiaj",
+          "grossMass": 6.98,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 186.49
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 249,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 3.5,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 214.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 250,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 2.45,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 231.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 251,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 0.77,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 33.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 252,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 7.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 68.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 253,
+          "hsCode": "870893",
+          "goodsDescription": "Sevomecanism ambreiaj",
+          "grossMass": 0.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 19.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 254,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 6.57,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 65.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 255,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 3.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 276.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 256,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 28.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 570.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 257,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 3.0,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 183.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 258,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment ambreiaj pneumatic",
+          "grossMass": 15.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 1712.82
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 259,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.15,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 53.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 260,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 8.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 215.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 261,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 13.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 337.95
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 262,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 12.56,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 671.88
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 263,
+          "hsCode": "870893",
+          "goodsDescription": "Capac ambreiaj",
+          "grossMass": 48.12,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 311.64
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 264,
+          "hsCode": "870893",
+          "goodsDescription": "Capac ambreiaj",
+          "grossMass": 44.19,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 175.13
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 265,
+          "hsCode": "870893",
+          "goodsDescription": "Disc ambreiaj",
+          "grossMass": 20.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 414.34
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 266,
+          "hsCode": "870893",
+          "goodsDescription": "Disc ambreiaj",
+          "grossMass": 21.52,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 380.44
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 267,
+          "hsCode": "870893",
+          "goodsDescription": "Disc ambreiaj",
+          "grossMass": 12.34,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 235.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 268,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 116.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 807.32
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 269,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 165.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 1513.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 270,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 41.4,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 576.63
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 271,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 39.58,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 580.55
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 272,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 604.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 5234.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 273,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 42.22,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 431.98
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 274,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 123.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 1088.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 275,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 40.77,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 392.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 276,
+          "hsCode": "870893",
+          "goodsDescription": "Amortizor de torsiune",
+          "grossMass": 18.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 359.44
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 277,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 84.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 900.04
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 278,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 111.06,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 966.28
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 279,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 53.88,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 610.15
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 280,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 0.58,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 17.39
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 281,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 0.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 10.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 282,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 118.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 283,
+          "hsCode": "870893",
+          "goodsDescription": "Furca ambreiaj",
+          "grossMass": 29.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 533.76
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 284,
+          "hsCode": "870893",
+          "goodsDescription": "Manson debreiere",
+          "grossMass": 0.54,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 20.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 285,
+          "hsCode": "870893",
+          "goodsDescription": "Arc disc ambreiaj",
+          "grossMass": 0.44,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 25.71
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 286,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 21.28,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 277.86
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 287,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu rulment hidraulic",
+          "grossMass": 4.83,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 81.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 288,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 4.33,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 45.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 289,
+          "hsCode": "870893",
+          "goodsDescription": "Sevomecanism ambreiaj",
+          "grossMass": 0.33,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 25.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 290,
+          "hsCode": "870893",
+          "goodsDescription": "Rulment presiune",
+          "grossMass": 0.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 15.94
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 291,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.38,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 26.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 292,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.38,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 26.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 293,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.38,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 26.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 294,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 1.41,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 92.64
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 295,
+          "hsCode": "870893",
+          "goodsDescription": "Pompa ambreiaj",
+          "grossMass": 0.24,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 24.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 296,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 5.32,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 64.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 297,
+          "hsCode": "870893",
+          "goodsDescription": "Sevomecanism ambreiaj",
+          "grossMass": 3.65,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 140.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 298,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu rulment",
+          "grossMass": 6.9,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 84.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 299,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu volanta cu masa dubla si rulment",
+          "grossMass": 19.56,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 241.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 300,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj autoreglant",
+          "grossMass": 16.26,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 181.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 301,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu volanta cu masa dubla si rulment",
+          "grossMass": 17.78,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 186.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 302,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj autoreglant",
+          "grossMass": 7.37,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 85.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 303,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu volanta cu masa dubla",
+          "grossMass": 22.7,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 248.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 304,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 6.72,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 81.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 305,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu volanta cu masa dubla",
+          "grossMass": 21.82,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 251.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 306,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu rulment",
+          "grossMass": 15.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 205.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 307,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj autoreglant",
+          "grossMass": 13.3,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 234.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 308,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 10.03,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 131.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 309,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu rulment hidraulic",
+          "grossMass": 10.8,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 165.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 310,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj",
+          "grossMass": 6.96,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 88.5
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 311,
+          "hsCode": "870893",
+          "goodsDescription": "Kit ambreiaj cu rulment hidraulic",
+          "grossMass": 22.08,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 322.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 312,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 4.62,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 58.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 313,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 3.76,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 76.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 314,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie",
+          "grossMass": 25.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 244.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 315,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie",
+          "grossMass": 25.1,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 244.8
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 316,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 0.83,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 16.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 317,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.01,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 29.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 318,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.01,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 29.3
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 319,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 2.07,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 59.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 320,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 0.53,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 13.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 321,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.68,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 44.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 322,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.16,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 17.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 323,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 0.63,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.0
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 324,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 1.83,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 50.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 325,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 2.92,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 65.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 326,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 2.18,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 49.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 327,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 16.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 328,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.02,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 16.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 329,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 1.26,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 44.7
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 330,
+          "hsCode": "870894",
+          "goodsDescription": "Cap de barДѓ",
+          "grossMass": 0.41,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 12.9
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 331,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 3.2,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 55.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 332,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 1.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 38.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 333,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 1.6,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 38.4
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 334,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 2.31,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 54.6
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 335,
+          "hsCode": "870894",
+          "goodsDescription": "Bieleta directie (fara cap)",
+          "grossMass": 2.25,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 32.1
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 336,
+          "hsCode": "870899",
+          "goodsDescription": "Amortizor cabina",
+          "grossMass": 3.5,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 126.13
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 337,
+          "hsCode": "870899",
+          "goodsDescription": "Amortizor cabina",
+          "grossMass": 8.66,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 98.98
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 338,
+          "hsCode": "871410",
+          "goodsDescription": "Placute frana",
+          "grossMass": 0.36,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 12.54
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        },
+        {
+          "decItmNber": 339,
+          "hsCode": "871690",
+          "goodsDescription": "Amortizor remorcДѓ",
+          "grossMass": 189.42,
+          "itemTaxes": {
+            "currency": "EUR",
+            "statisticalValue": 2188.2
+          },
+          "transportPackage": [
+            {
+              "marks": [
+                "Box 1/5"
+              ],
+              "type": "PK"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+.root {
+    -fx-background-color: #003366;
+    -fx-padding: 30px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.text-field {
+    -fx-pref-width: 250px;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 16px;
+}
+
+.combo-box {
+    -fx-pref-width: 250px;
+}
+
+#title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
