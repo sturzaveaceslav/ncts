@@ -36,6 +36,10 @@ public class MainApp extends Application {
     private TextField consigneePostcodeField = new TextField();
     private TextField consigneeCountryField = new TextField();
     private TextField expCountryField = new TextField("MD");
+    private List<HouseItem> loadedItems = null;
+    private List<HouseItem> modifiedItems = null;
+
+
 
 
 
@@ -237,11 +241,14 @@ public class MainApp extends Application {
                 return;
             }
 
-            List<HouseItem> items = ExcelService.readExcel(
+            List<HouseItem> items = (modifiedItems != null && !modifiedItems.isEmpty())
+                    ? modifiedItems
+                    : ExcelService.readExcel(
                     selectedExcelFile,
                     packTypeField.getText(),
                     shippingMarksField.getText()
             );
+
 
             grossMassField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getGrossMass).sum()));
             invoiceValueField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getStatisticalValue).sum()));
@@ -346,7 +353,9 @@ public class MainApp extends Application {
                         packTypeField.getText(),
                         shippingMarksField.getText(),
                         selectedExcelFile,
-                        saveFile
+                        items,
+                        saveFile,
+                        false
                 );
 
                 stage.setOnCloseRequest(event -> {
@@ -379,8 +388,46 @@ public class MainApp extends Application {
             }
         });
 
+        Button fixKgBtn = new Button("Generează KG");
 
-        HBox buttons = new HBox(10, uploadBtn, genBtn);
+        fixKgBtn.setOnAction(e -> {
+            if (selectedExcelFile == null) {
+                showAlert("Selectează un fișier Excel mai întâi.");
+                return;
+            }
+
+            List<HouseItem> items = ExcelService.readExcel(
+                    selectedExcelFile,
+                    packTypeField.getText(),
+                    shippingMarksField.getText()
+            );
+
+
+
+            if (items.isEmpty()) {
+                showAlert("Fișierul Excel nu conține articole.");
+                return;
+            }
+
+            // Calculăm masa totală
+            double totalGross = items.stream().mapToDouble(HouseItem::getGrossMass).sum();
+
+            // Modificăm lista: punem masa doar la prima poziție
+            items.get(0).setGrossMass(totalGross);
+            for (int i = 1; i < items.size(); i++) {
+                items.get(i).setGrossMass(0.0);
+            }
+
+            modifiedItems = items; // salvăm lista modificată
+
+            grossMassField.setText(String.format("%.2f", totalGross));
+            showAlert("✅ Masa brută setată doar pe prima poziție.");
+        });
+
+
+
+
+        HBox buttons = new HBox(10, uploadBtn, genBtn, fixKgBtn);
         buttons.setAlignment(Pos.CENTER_LEFT);
 
         HBox actorSection = new HBox(50, exporterGrid, contactGrid, consigneeGrid);

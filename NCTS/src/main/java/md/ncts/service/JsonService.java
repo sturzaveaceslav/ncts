@@ -12,8 +12,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class JsonService {
+    private static double roundTo2Decimals(double value) {
+        return Math.round(value * 100.0) / 100.0;
+    }
 
-    public static class ItemRow {
+
+        public static class ItemRow {
         public String cod_Tarifar;
         public String Description;
         public String unit_masura;
@@ -39,51 +43,49 @@ public class JsonService {
             String packageType,
             String shippingMarks,
             File excelFile,
-            File saveFile
+            List<HouseItem> items,
+            File saveFile,
+            boolean onlyFirstHasGrossMass
     ) {
         try {
-            List<ItemRow> rows = ExcelService.readRows(excelFile);
-            Map<String, List<ItemRow>> grouped = rows.stream()
-                    .collect(Collectors.groupingBy(r -> r.cod_Tarifar));
-
             List<Map<String, Object>> houseItems = new ArrayList<>();
             int index = 1;
-            for (String hsCode : grouped.keySet()) {
-                List<ItemRow> group = grouped.get(hsCode);
-                String desc = group.get(0).Description;
-                double qty = group.stream().mapToDouble(r -> r.Cantitate).sum();
-                double val = group.stream().mapToDouble(r -> r.Suma).sum();
-                double nett = group.stream().mapToDouble(r -> r.NETT).sum();
-                double brut = group.stream().mapToDouble(r -> r.BRUTT).sum();
-
+            for (HouseItem hi : items) {
                 Map<String, Object> item = new LinkedHashMap<>();
+                // Setăm greutatea brută corect doar pentru prima poziție
+                double itemGrossMass;
+                if (onlyFirstHasGrossMass) {
+                    itemGrossMass = (index == 1) ? hi.getGrossMass() : 0;
+                } else {
+                    itemGrossMass = hi.getGrossMass();
+                }
+
                 item.put("additionalInfo", new ArrayList<>());
                 item.put("additionalRef", new ArrayList<>());
                 item.put("chainAddActors", new ArrayList<>());
                 item.put("dangerousGoods", new ArrayList<>());
                 item.put("decItmNber", index);
-                item.put("goodsDescription", desc);
-                item.put("grossMass", brut);
-                item.put("hsCode", hsCode);
+                item.put("goodsDescription", hi.getDescription());
+                item.put("grossMass", roundTo2Decimals(itemGrossMass));
+                item.put("hsCode", hi.getHsCode());
+                item.put("itemTaxes", Map.of(
+                        "currency", "EUR",
+                        "quantity1", (int) hi.getQuantity(),
+                        "quantity2", 0,
+                        "statisticalValue", roundTo2Decimals(hi.getStatisticalValue())
+                ));
 
-                Map<String, Object> taxes = new LinkedHashMap<>();
-                taxes.put("currency", "EUR");
-                taxes.put("quantity1", (int) qty);
-                taxes.put("quantity2", 0);
-                taxes.put("statisticalValue", val);
-                item.put("itemTaxes", taxes);
-
-                Map<String, Object> packType = Map.of(
-                        "code", packageType,
-                        "name", "definitie comuna",
-                        "packageKind", "PACKED"
-                );
+                Map<String, Object> packType = new LinkedHashMap<>();
+                packType.put("code", "ZZ");
+                packType.put("name", "definitie comuna");
+                packType.put("packageKind", "PACKED");
 
                 Map<String, Object> packaging = new LinkedHashMap<>();
                 packaging.put("packType", packType);
-                packaging.put("packageNumber", index == 1 ? 1 : 0);
+                packaging.put("packageNumber", (index == 1) ? 1 : 0);
                 packaging.put("sequence", 1);
-                packaging.put("shippingMark", shippingMarks);
+                packaging.put("shippingMark", "F/M");
+
                 item.put("packagings", List.of(packaging));
 
                 item.put("previousDoc", new ArrayList<>());
@@ -99,16 +101,14 @@ public class JsonService {
             root.put("additionalInfo", new ArrayList<>());
             root.put("additionalRef", new ArrayList<>());
 
-            Map<String, Object> applicant = Map.of(
+            root.put("applicant", Map.of(
                     "EORINumber", representative.getCui(),
                     "name", representative.getName(),
                     "street", representative.getStreet(),
                     "city", representative.getCity(),
                     "postcode", representative.getPostcode(),
                     "country", representative.getCountry()
-            );
-            root.put("applicant", applicant);
-
+            ));
 
             root.put("applicantContact", Map.of(
                     "contactFor", "APPLICANT",
@@ -129,16 +129,17 @@ public class JsonService {
                     "sequence", 1,
                     "transportType", "BORDER"
             )));
+
             root.put("chainAddActors", new ArrayList<>());
-            Map<String, Object> consignor = Map.of(
+
+            root.put("consignor", Map.of(
                     "EORINumber", exporter.getEori(),
                     "name", exporter.getName(),
                     "street", exporter.getStreet(),
                     "city", exporter.getCity(),
                     "postcode", exporter.getPostcode(),
                     "country", exporter.getCountry()
-            );
-            root.put("consignor", consignor);
+            ));
 
             root.put("consignee", Map.of(
                     "name", consignee.getName(),
@@ -158,8 +159,8 @@ public class JsonService {
                     "locationType", Map.of("code", "A", "description", "Designated Location"),
                     "qualifier", Map.of("code", "V", "description", "Customs Office Identifier")
             ));
-            root.put("grossMass", grossMass);
 
+            root.put("grossMass", roundTo2Decimals(grossMass));
             root.put("guarantees", List.of(Map.of(
                     "sequence", 1,
                     "guaranteeReferences", List.of(Map.of(
@@ -188,15 +189,14 @@ public class JsonService {
             root.put("languageAtDeparture", "RO");
             root.put("loadingPlace", Map.of("unCode", "ROCLJ"));
 
-            Map<String, Object> representativeMap = Map.of(
+            root.put("representative", Map.of(
                     "name", representative.getName(),
                     "street", representative.getStreet(),
                     "city", representative.getCity(),
                     "postcode", representative.getPostcode(),
                     "country", representative.getCountry(),
                     "cui", representative.getCui()
-            );
-            root.put("representative", representativeMap);
+            ));
             root.put("representativeStatus", 2);
 
             root.put("supportingDoc", List.of(Map.of(
@@ -206,12 +206,14 @@ public class JsonService {
                     "reference", "RO1025002496",
                     "sequence", 1
             )));
+
             root.put("transportDoc", List.of(Map.of(
                     "docClass", "TRANSPORT_DOC",
                     "docType", "N760",
                     "reference", "MD 0850448",
                     "sequence", 1
             )));
+
             root.put("ucrReference", "002");
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -219,22 +221,9 @@ public class JsonService {
                 gson.toJson(root, writer);
             }
 
-            Map<String, String> saved = new HashMap<>();
-            saved.put("name", contact.getName());
-            saved.put("phone", contact.getPhone());
-            saved.put("email", contact.getEmail());
-            saved.put("exporter", exporter.getName());
-            saved.put("city", exporter.getCity());
-            saved.put("street", exporter.getStreet());
-            saved.put("postcode", exporter.getPostcode());
-            saved.put("guaranteeCode", guaranteeCode);
-            saved.put("guaranteeNumber", guaranteeNumber);
-            saved.put("guaranteeAmount", String.valueOf(guaranteeAmount));
-
-            Files.write(Paths.get("config.json"), gson.toJson(saved).getBytes());
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
