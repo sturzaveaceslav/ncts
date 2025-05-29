@@ -17,9 +17,12 @@ public class Consignee {
         this.postcode = postcode;
     }
 
-
     public String getName() {
         return name;
+    }
+
+    public String getEori() {
+        return eori;
     }
 
     public String getStreet() {
@@ -36,5 +39,17 @@ public class Consignee {
 
     public String getCountry() {
         return country;
+    }
+
+    @Override
+    public String toString() {
+        return "Consignee{" +
+                "name='" + name + '\'' +
+                ", eori='" + eori + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", postcode='" + postcode + '\'' +
+                '}';
     }
 }

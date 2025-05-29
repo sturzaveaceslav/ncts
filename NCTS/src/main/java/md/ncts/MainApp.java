@@ -1,29 +1,43 @@
 package md.ncts;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import md.ncts.model.*;
 import md.ncts.service.ExcelService;
 import md.ncts.service.JsonService;
-
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.image.Image;
+import md.ncts.util.LicenseValidator;
 
 public class MainApp extends Application {
 
     // Declarații
     private File selectedExcelFile = null;
+    private List<HouseItem> items = new ArrayList<>();
 
     // Controale
     private TextField eoriField = new TextField();
     private TextField truckField = new TextField();
+    private TextField dispatchCountryField = new TextField();  // Ex: Romania
+    private TextField dispatchCountryCodeField = new TextField();  // Ex: RO
     private TextField depOfficeField = new TextField("MD203000");
     private TextField destOfficeField = new TextField("MD207000");
     private TextField grossMassField = new TextField();
@@ -38,25 +52,20 @@ public class MainApp extends Application {
     private TextField expCountryField = new TextField("MD");
     private List<HouseItem> loadedItems = null;
     private List<HouseItem> modifiedItems = null;
-
-
-
-
-
     private TextField guaranteeNumberField = new TextField();
     private TextField guaranteeCodeField = new TextField();
     private TextField guaranteeAmountField = new TextField("10");
     private ComboBox<String> guaranteeTypeBox = new ComboBox<>(FXCollections.observableArrayList(
             "1 - Garanție globală", "0 - Niciuna", "2 - Individuală"
+            // Pentru supportingDoc
+            //
+
     ));
-
     private Label fileLabel = new Label("Niciun fișier selectat");
-
     private TextField expNameField = new TextField();
     private TextField expStreetField = new TextField();
     private TextField expCityField = new TextField();
     private TextField expPostcodeField = new TextField();
-
     private TextField repNameField;
     private TextField repCuiField;
     private TextField repStreetField;
@@ -64,10 +73,21 @@ public class MainApp extends Application {
     private TextField repPostcodeField;
     private TextField repCountryField;
 
-
     @Override
     public void start(Stage stage) {
+        // Verificare licență
+        if (!LicenseValidator.isValid()) {
+            showLicenseErrorDialog(); // Dialogul tău cu MAC și mesaj
+            return;
+        }
+
+        ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("/img/logo.png")));
+        logo.setFitWidth(100);
+        logo.setPreserveRatio(true);
+
         Label title = new Label("NCTS - Generator JSON");
+        title.setStyle("-fx-font-size: 22px; -fx-text-fill: white; -fx-font-weight: bold;");
+
         title.setId("title");
 
         GridPane grid = new GridPane();
@@ -89,12 +109,33 @@ public class MainApp extends Application {
         TextField contactNameField = new TextField();
         TextField contactPhoneField = new TextField();
         TextField contactEmailField = new TextField();
+        // Pentru supportingDoc
+        TextField supportingDocRefField = new TextField();
+        TextField supportingDocTypeField = new TextField("N380");
+
+// Pentru transportDoc
+        TextField transportDocRefField = new TextField();
+        TextField transportDocTypeField = new TextField("N760");
+
         var saved = md.ncts.util.SavedDataStorage.load();
         if (saved != null) {
             expCountryField.setText(saved.expCountry);
             contactNameField.setText(saved.contactName);
             contactPhoneField.setText(saved.contactPhone);
             contactEmailField.setText(saved.contactEmail);
+
+
+            guaranteeNumberField.setText(saved.guaranteeNumber);
+            guaranteeCodeField.setText(saved.guaranteeCode);
+            guaranteeAmountField.setText(saved.guaranteeAmount);
+            guaranteeTypeBox.setValue(saved.guaranteeType);
+
+            consigneeNameField.setText(saved.consigneeName);
+            consigneeStreetField.setText(saved.consigneeStreet);
+            consigneeCityField.setText(saved.consigneeCity);
+            consigneePostcodeField.setText(saved.consigneePostcode);
+            consigneeCountryField.setText(saved.consigneeCountry);
+
         }
 
         GridPane contactGrid = new GridPane();
@@ -110,8 +151,10 @@ public class MainApp extends Application {
         contactGrid.add(contactEmailField, 1, 2);
 
 
-        grid.add(new Label("EORI"), 0, r);
-        grid.add(eoriField, 1, r++);
+        grid.add(new Label("Tara Expeditie"), 0, r);
+        grid.add(dispatchCountryField, 1, r++);
+        grid.add(new Label("Cod Tara Expeditie"), 0, r);
+        grid.add(dispatchCountryCodeField, 1, r++);
         grid.add(new Label("Truck Number"), 0, r);
         grid.add(truckField, 1, r++);
         grid.add(new Label("Departure Office"), 0, r);
@@ -126,6 +169,16 @@ public class MainApp extends Application {
         grid.add(packTypeField, 1, r++);
         grid.add(new Label("Shipping Marks"), 0, r);
         grid.add(shippingMarksField, 1, r++);
+        grid.add(new Label("Numarul Invoice"), 2, 4);
+        grid.add(supportingDocRefField, 3, 4);
+        grid.add(new Label("Supporting Doc Type"), 2, 5);
+        grid.add(supportingDocTypeField, 3, 5);
+        grid.add(new Label("Numarul CMR"), 2, 6);
+        grid.add(transportDocRefField, 3, 6);
+        grid.add(new Label("Transport Doc Type"), 2, 7);
+        grid.add(transportDocTypeField, 3, 7);
+
+
 
         grid.add(new Label("Guarantee Number"), 2, 0);
         grid.add(guaranteeNumberField, 3, 0);
@@ -148,6 +201,12 @@ public class MainApp extends Application {
         repPostcodeField = new TextField();
         repCountryField = new TextField("MD");
 
+        repNameField.setText(saved.repName);
+        repCuiField.setText(saved.repCui);
+        repStreetField.setText(saved.repStreet);
+        repCityField.setText(saved.repCity);
+        repPostcodeField.setText(saved.repPostcode);
+        repCountryField.setText(saved.repCountry);
 // Adăugăm în repGrid
         repGrid.add(new Label("Representative Name"), 0, 0);
         repGrid.add(repNameField, 1, 0);
@@ -187,9 +246,6 @@ public class MainApp extends Application {
         consigneeGrid.add(new Label("Țara:"), 0, 5);
         consigneeGrid.add(consigneeCountryField, 1, 5);
 
-
-
-
         // Secțiune Exportator
         GridPane exporterGrid = new GridPane();
         exporterGrid.setHgap(15);
@@ -207,8 +263,6 @@ public class MainApp extends Application {
         exporterGrid.add(new Label("Country"), 0, 4);
         exporterGrid.add(expCountryField, 1, 4);
 
-
-
         // Butoane
         Button uploadBtn = new Button("Upload File...");
         uploadBtn.setOnAction(e -> {
@@ -219,6 +273,7 @@ public class MainApp extends Application {
 
             if (selectedExcelFile != null) {
                 fileLabel.setText(selectedExcelFile.getName());
+                fileLabel.getStyleClass().add("label-highlight");
 
                 // ✅ Citește și calculează imediat
                 List<HouseItem> items = ExcelService.readExcel(
@@ -229,7 +284,11 @@ public class MainApp extends Application {
 
                 // ✅ Actualizează valorile în interfață
                 grossMassField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getGrossMass).sum()));
-                invoiceValueField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getStatisticalValue).sum()));
+                invoiceValueField.setText(String.format("%.2f",
+                        items.stream().mapToDouble(item -> item.getItemTaxes().getStatisticalValue()).sum()
+                ));
+
+
             }
         });
 
@@ -248,10 +307,23 @@ public class MainApp extends Application {
                     packTypeField.getText(),
                     shippingMarksField.getText()
             );
-
+            String dispatchName = dispatchCountryField.getText().trim();
+            String dispatchCode = dispatchCountryCodeField.getText().trim();
+            System.out.println("DispatchName în UI: [" + dispatchName + "]");
+            System.out.println("DispatchCode în UI: [" + dispatchCode + "]");
+            for (HouseItem item : items) {
+                item.setDispatchCountryCode(dispatchCode);
+                item.setDispatchCountryName(dispatchName);
+            }
+            items.stream().limit(3).forEach(i ->
+                    System.out.println("Item Dispatch Code: [" + i.getDispatchCountryCode() + "], Name: [" + i.getDispatchCountryName() + "]")
+            );
 
             grossMassField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getGrossMass).sum()));
-            invoiceValueField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getStatisticalValue).sum()));
+            invoiceValueField.setText(String.format("%.2f",
+                    items.stream().mapToDouble(item -> item.getItemTaxes().getStatisticalValue()).sum()
+            ));
+
 
             FileChooser chooser = new FileChooser();
             chooser.setTitle("Salvează JSON");
@@ -340,8 +412,8 @@ public class MainApp extends Application {
                 JsonService.generateJson(
                         exporter,
                         contact,
-                        consignee,        // <-- ADĂUGAT
-                        representative,   // <-- ADĂUGAT
+                        consignee,
+                        representative,
                         truckField.getText(),
                         depOfficeField.getText(),
                         destOfficeField.getText(),
@@ -355,9 +427,14 @@ public class MainApp extends Application {
                         selectedExcelFile,
                         items,
                         saveFile,
-                        false
-                );
-
+                        false,
+                        supportingDocRefField.getText(),
+                        supportingDocTypeField.getText(),
+                        transportDocRefField.getText(),
+                        transportDocTypeField.getText(),
+                        dispatchCountryField.getText().trim(),
+                        dispatchCountryCodeField.getText().trim()
+                        );
                 stage.setOnCloseRequest(event -> {
                     SavedFormData formData = new SavedFormData();
                     formData.expCountry = expCountryField.getText();
@@ -374,12 +451,18 @@ public class MainApp extends Application {
                     formData.repCity = repCityField.getText();
                     formData.repPostcode = repPostcodeField.getText();
                     formData.repCountry = repCountryField.getText();
+                    formData.consigneeName = consigneeNameField.getText();
+                    formData.consigneeStreet = consigneeStreetField.getText();
+                    formData.consigneeCity = consigneeCityField.getText();
+                    formData.consigneePostcode = consigneePostcodeField.getText();
+                    formData.consigneeCountry = consigneeCountryField.getText();
                     formData.guaranteeNumber = guaranteeNumberField.getText();
                     formData.guaranteeCode = guaranteeCodeField.getText();
                     formData.guaranteeAmount = guaranteeAmountField.getText();
                     formData.declarationType = declarationTypeBox.getValue();
                     formData.declarationDetail = addDeclTypeBox.getValue();
                     formData.guaranteeType = guaranteeTypeBox.getValue();
+
                     md.ncts.util.SavedDataStorage.save(formData);
                 });
 
@@ -395,7 +478,12 @@ public class MainApp extends Application {
                 showAlert("Selectează un fișier Excel mai întâi.");
                 return;
             }
-
+            String dispatchName = dispatchCountryField.getText().trim();
+            String dispatchCode = dispatchCountryCodeField.getText().trim();
+            for (HouseItem item : items) {
+                item.setDispatchCountryCode(dispatchCode);
+                item.setDispatchCountryName(dispatchName);
+            }
             List<HouseItem> items = ExcelService.readExcel(
                     selectedExcelFile,
                     packTypeField.getText(),
@@ -422,10 +510,10 @@ public class MainApp extends Application {
 
             grossMassField.setText(String.format("%.2f", totalGross));
             showAlert("✅ Masa brută setată doar pe prima poziție.");
+            fileLabel.setText("Masa brută actualizată ✔");
+            fileLabel.getStyleClass().add("label-highlight");
+
         });
-
-
-
 
         HBox buttons = new HBox(10, uploadBtn, genBtn, fixKgBtn);
         buttons.setAlignment(Pos.CENTER_LEFT);
@@ -433,17 +521,17 @@ public class MainApp extends Application {
         HBox actorSection = new HBox(50, exporterGrid, contactGrid, consigneeGrid);
         actorSection.setAlignment(Pos.CENTER_LEFT);
 
-
-
-
         GridPane combinedGrid = new GridPane();
         combinedGrid.setHgap(50);
         combinedGrid.add(grid, 0, 0);
         combinedGrid.add(repGrid, 1, 0);
 
+        HBox header = new HBox(20, logo, title);
+        header.setAlignment(Pos.CENTER_LEFT);
+
         VBox root = new VBox(20);
         root.getChildren().addAll(
-                title,
+                header, // ← adaugă aici
                 combinedGrid,
                 fileLabel,
                 buttons,
@@ -451,6 +539,7 @@ public class MainApp extends Application {
                 actorSection,
                 reprezentantBox
         );
+
 
         root.setPadding(new Insets(20));
         root.getStyleClass().add("root");
@@ -469,10 +558,72 @@ public class MainApp extends Application {
         stage.setMaximized(true);
         stage.show();
 
-
-
     }
-        private void showAlert(String msg) {
+    private void showLicenseErrorDialog() {
+        String calculatedMac;
+        try {
+            calculatedMac = md.ncts.util.LicenseValidator.getMacAddress();
+        } catch (Exception e) {
+            calculatedMac = "N/A";
+        }
+
+        final String mac = calculatedMac;
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Licență lipsă");
+        alert.setHeaderText("Această aplicație nu este licențiată.");
+        alert.setContentText("MAC-ul calculatorului este:\n\n" + mac + "\n\nTrimite acest cod pentru a primi licența.");
+
+        ButtonType copyBtn = new ButtonType("Copiază MAC", ButtonBar.ButtonData.LEFT);
+        ButtonType closeBtn = new ButtonType("Închide", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(copyBtn, closeBtn);
+
+        alert.showAndWait().ifPresent(result -> {
+            if (result == copyBtn) {
+                try {
+                    // Copiază în clipboard
+                    Clipboard clipboard = Clipboard.getSystemClipboard();
+                    ClipboardContent content = new ClipboardContent();
+                    content.putString(mac);
+                    clipboard.setContent(content);
+
+                    // Scrie MAC-ul într-un fișier
+                    String desktop = System.getProperty("user.home") + "/Desktop/mac.txt";
+                    java.nio.file.Files.writeString(java.nio.file.Path.of(desktop), mac);
+
+                    // Confirmare
+                    Alert copied = new Alert(Alert.AlertType.INFORMATION);
+                    copied.setTitle("MAC copiat");
+                    copied.setHeaderText(null);
+                    copied.setContentText("✅ MAC-ul a fost copiat în clipboard și salvat pe desktop:\n\nmac.txt");
+                    copied.showAndWait();
+                } catch (Exception ex) {
+                    Alert err = new Alert(Alert.AlertType.ERROR);
+                    err.setTitle("Eroare");
+                    err.setContentText("❌ Nu s-a putut copia/salva MAC-ul:\n" + ex.getMessage());
+                    err.showAndWait();
+                }
+
+
+                // Afișăm confirmare
+                Alert copied = new Alert(Alert.AlertType.INFORMATION);
+                copied.setTitle("MAC copiat");
+                copied.setHeaderText(null);
+                copied.setContentText("✅ Codul MAC a fost copiat în clipboard.");
+                copied.showAndWait();
+            }
+
+            // Închidem aplicația abia după ce s-a terminat tot
+            Platform.exit();
+            System.exit(0);
+        });
+    }
+
+
+
+
+
+    private void showAlert(String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText(msg);
         a.setHeaderText(null);

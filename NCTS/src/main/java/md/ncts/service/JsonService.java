@@ -17,7 +17,7 @@ public class JsonService {
     }
 
 
-        public static class ItemRow {
+    public static class ItemRow {
         public String cod_Tarifar;
         public String Description;
         public String unit_masura;
@@ -45,7 +45,13 @@ public class JsonService {
             File excelFile,
             List<HouseItem> items,
             File saveFile,
-            boolean onlyFirstHasGrossMass
+            boolean onlyFirstHasGrossMass,
+            String supportingDocRef,
+            String supportingDocType,
+            String transportDocRef,
+            String transportDocType,
+            String dispatchName,
+            String dispatchCode
     ) {
         try {
             List<Map<String, Object>> houseItems = new ArrayList<>();
@@ -70,10 +76,11 @@ public class JsonService {
                 item.put("hsCode", hi.getHsCode());
                 item.put("itemTaxes", Map.of(
                         "currency", "EUR",
-                        "quantity1", (int) hi.getQuantity(),
-                        "quantity2", 0,
-                        "statisticalValue", roundTo2Decimals(hi.getStatisticalValue())
+                        "quantity1", hi.getItemTaxes().getQuantity1(),
+                        "statisticalValue", roundTo2Decimals(hi.getItemTaxes().getStatisticalValue()),
+                        "quantity2", 0
                 ));
+
 
                 Map<String, Object> packType = new LinkedHashMap<>();
                 packType.put("code", "ZZ");
@@ -92,11 +99,35 @@ public class JsonService {
                 item.put("sequence", index);
                 item.put("supportingDoc", new ArrayList<>());
                 item.put("transportDoc", new ArrayList<>());
+                item.put("countryOfDispatch", Map.of(
+                        "code", hi.getDispatchCountryCode() != null ? hi.getDispatchCountryCode() : "",
+                        "name", hi.getDispatchCountryName() != null ? hi.getDispatchCountryName() : ""
+                ));
+
+
+
                 houseItems.add(item);
                 index++;
             }
 
             Map<String, Object> root = new LinkedHashMap<>();
+            // Supporting Doc
+            Map<String, Object> supportingDoc = new LinkedHashMap<>();
+            supportingDoc.put("docClass", "SUPPORTING_DOC");
+            supportingDoc.put("itmNber", 1);
+            supportingDoc.put("sequence", 1);
+            supportingDoc.put("reference", supportingDocRef);
+            supportingDoc.put("docType", supportingDocType);
+            root.put("supportingDoc", List.of(supportingDoc));
+
+            // Transport Doc
+            Map<String, Object> transportDoc = new LinkedHashMap<>();
+            transportDoc.put("docType", transportDocType);
+            transportDoc.put("reference", transportDocRef);
+            transportDoc.put("docClass", "TRANSPORT_DOC");
+            transportDoc.put("sequence", 1);
+            root.put("transportDoc", List.of(transportDoc));
+
             root.put("addDecType", Map.of("code", "A", "name", "Standard customs declaration "));
             root.put("additionalInfo", new ArrayList<>());
             root.put("additionalRef", new ArrayList<>());
@@ -153,7 +184,7 @@ public class JsonService {
             root.put("declarationType", "T1");
             root.put("departureOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)", "riskEnabled", false));
             root.put("destinationOffice", Map.of("code", destinationOffice, "name", "CHISINAU2 (PVI, Cricova)"));
-            root.put("dispatch", Map.of("code", "RO", "name", "Romania"));
+            root.put("dispatch", Map.of("code", dispatchCode, "name", dispatchName));
             root.put("goodsLocation", Map.of(
                     "customsOffice", Map.of("code", departureOffice, "name", "LEUSENI (PVFI, rutier)"),
                     "locationType", Map.of("code", "A", "description", "Designated Location"),
@@ -198,21 +229,6 @@ public class JsonService {
                     "cui", representative.getCui()
             ));
             root.put("representativeStatus", 2);
-
-            root.put("supportingDoc", List.of(Map.of(
-                    "docClass", "SUPPORTING_DOC",
-                    "docType", "N380",
-                    "itmNber", 1,
-                    "reference", "RO1025002496",
-                    "sequence", 1
-            )));
-
-            root.put("transportDoc", List.of(Map.of(
-                    "docClass", "TRANSPORT_DOC",
-                    "docType", "N760",
-                    "reference", "MD 0850448",
-                    "sequence", 1
-            )));
 
             root.put("ucrReference", "002");
 

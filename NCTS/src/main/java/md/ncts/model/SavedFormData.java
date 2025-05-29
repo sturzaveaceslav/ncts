@@ -25,5 +25,11 @@ public class SavedFormData {
     public String declarationDetail;   // ex: "A - Declarație standard"
     public String guaranteeType;       // ex: "1 - Garanție globală"
     public String expCountry;  // în SavedFormData.java
+    public String consigneeName;
+    public String consigneeStreet;
+    public String consigneeCity;
+    public String consigneePostcode;
+    public String consigneeCountry;
+
 
 }
