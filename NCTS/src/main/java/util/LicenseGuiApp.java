@@ -1,19 +1,23 @@
 package md.ncts.util;
 
-import com.google.gson.JsonObject;
-import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileWriter;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 
 public class LicenseGuiApp extends Application {
 
@@ -40,27 +44,60 @@ public class LicenseGuiApp extends Application {
                 return;
             }
 
-            long expiryMillis = Date.from(expiryDate.atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+            String expiry = expiryDate.toString();
+            String code = md.ncts.util.LicenseValidator.generateActivationCode(mac, company, expiry);
 
-            JsonObject license = new JsonObject();
-            license.addProperty("mac", mac);
-            license.addProperty("company", company);
-            license.addProperty("expiry", expiryMillis);
+            // ✅ Salvare în Excel
+            try {
+                String userHome = System.getProperty("user.home");
+                File excelFile = new File(userHome + "/generated-licenses.xlsx");
 
-            FileChooser chooser = new FileChooser();
-            chooser.setTitle("Salvează fișierul license.json");
-            chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
-            chooser.setInitialFileName("license.json");
+                Workbook workbook;
+                Sheet sheet;
 
-            var file = chooser.showSaveDialog(stage);
-            if (file != null) {
-                try (FileWriter writer = new FileWriter(file)) {
-                    new Gson().toJson(license, writer);
-                    showAlert("✅ Fișierul de licență a fost generat cu succes!");
-                } catch (Exception ex) {
-                    showAlert("❌ Eroare la salvare: " + ex.getMessage());
+                if (excelFile.exists()) {
+                    workbook = new XSSFWorkbook(new FileInputStream(excelFile));
+                    sheet = workbook.getSheetAt(0);
+                } else {
+                    workbook = new XSSFWorkbook();
+                    sheet = workbook.createSheet("Licenses");
+                    Row header = sheet.createRow(0);
+                    header.createCell(0).setCellValue("MAC");
+                    header.createCell(1).setCellValue("Company");
+                    header.createCell(2).setCellValue("Expiry");
+                    header.createCell(3).setCellValue("Code");
                 }
+
+                int lastRow = sheet.getLastRowNum() + 1;
+                Row row = sheet.createRow(lastRow);
+                row.createCell(0).setCellValue(mac);
+                row.createCell(1).setCellValue(company);
+                row.createCell(2).setCellValue(expiry);
+                row.createCell(3).setCellValue(code);
+
+                FileOutputStream out = new FileOutputStream(excelFile);
+                workbook.write(out);
+                out.close();
+                workbook.close();
+            } catch (Exception ex) {
+                showAlert("❌ Eroare la salvarea în Excel: " + ex.getMessage());
             }
+
+            // ✅ Afișează codul
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cod Generat");
+            alert.setHeaderText("Codul de activare este:");
+            alert.setContentText(code);
+
+            ButtonType copyBtn = new ButtonType("Copiază", ButtonBar.ButtonData.LEFT);
+            ButtonType closeBtn = new ButtonType("Închide", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(copyBtn, closeBtn);
+
+            alert.showAndWait().ifPresent(result -> {
+                if (result == copyBtn) {
+                    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(code), null);
+                }
+            });
         });
 
         VBox root = new VBox(10,

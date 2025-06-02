@@ -17,6 +17,7 @@ import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import md.ncts.model.*;
+import md.ncts.service.CsvService;
 import md.ncts.service.ExcelService;
 import md.ncts.service.JsonService;
 import javafx.scene.input.Clipboard;
@@ -25,6 +26,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.Image;
+import javafx.application.Platform;
+import md.ncts.util.SavedActivationStorage;
+import md.ncts.util.ActivationWindow;
+
 import md.ncts.util.LicenseValidator;
 
 public class MainApp extends Application {
@@ -72,14 +77,22 @@ public class MainApp extends Application {
     private TextField repCityField;
     private TextField repPostcodeField;
     private TextField repCountryField;
+    private TextField locuriField = new TextField("1");
 
     @Override
     public void start(Stage stage) {
-        // Verificare licență
-        if (!LicenseValidator.isValid()) {
-            showLicenseErrorDialog(); // Dialogul tău cu MAC și mesaj
-            return;
-        }
+        // ✅ Verificare licență
+            if (!SavedActivationStorage.isSavedLicenseValid()) {
+                ActivationWindow activationWindow = new ActivationWindow();
+                boolean activated = activationWindow.showAndWait();
+                if (!activated) {
+                    Platform.exit();
+                    return;
+                }
+                // Salvează codul introdus de utilizator
+                String lastCode = ActivationWindow.getLastEnteredCode();
+                SavedActivationStorage.save(lastCode);
+            }
 
         ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("/img/logo.png")));
         logo.setFitWidth(100);
@@ -169,6 +182,10 @@ public class MainApp extends Application {
         grid.add(packTypeField, 1, r++);
         grid.add(new Label("Shipping Marks"), 0, r);
         grid.add(shippingMarksField, 1, r++);
+
+        grid.add(new Label("Număr de locuri"), 0, r);
+        grid.add(locuriField, 1, r++);
+
         grid.add(new Label("Numarul Invoice"), 2, 4);
         grid.add(supportingDocRefField, 3, 4);
         grid.add(new Label("Supporting Doc Type"), 2, 5);
@@ -201,12 +218,15 @@ public class MainApp extends Application {
         repPostcodeField = new TextField();
         repCountryField = new TextField("MD");
 
-        repNameField.setText(saved.repName);
-        repCuiField.setText(saved.repCui);
-        repStreetField.setText(saved.repStreet);
-        repCityField.setText(saved.repCity);
-        repPostcodeField.setText(saved.repPostcode);
-        repCountryField.setText(saved.repCountry);
+        if (saved != null) {
+            if (saved.repName != null) repNameField.setText(saved.repName);
+            if (saved.repCui != null) repCuiField.setText(saved.repCui);
+            if (saved.repStreet != null) repStreetField.setText(saved.repStreet);
+            if (saved.repCity != null) repCityField.setText(saved.repCity);
+            if (saved.repPostcode != null) repPostcodeField.setText(saved.repPostcode);
+            if (saved.repCountry != null) repCountryField.setText(saved.repCountry);
+        }
+
 // Adăugăm în repGrid
         repGrid.add(new Label("Representative Name"), 0, 0);
         repGrid.add(repNameField, 1, 0);
@@ -264,31 +284,53 @@ public class MainApp extends Application {
         exporterGrid.add(expCountryField, 1, 4);
 
         // Butoane
+
         Button uploadBtn = new Button("Upload File...");
         uploadBtn.setOnAction(e -> {
             FileChooser chooser = new FileChooser();
-            chooser.setTitle("Selectează fișier Excel");
-            chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
+            chooser.setTitle("Selectează fișier Excel sau CSV");
+            chooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Fișiere Excel", "*.xlsx"),
+                    new FileChooser.ExtensionFilter("Fișiere CSV", "*.csv")
+            );
+
             selectedExcelFile = chooser.showOpenDialog(stage);
 
             if (selectedExcelFile != null) {
                 fileLabel.setText(selectedExcelFile.getName());
                 fileLabel.getStyleClass().add("label-highlight");
 
-                // ✅ Citește și calculează imediat
-                List<HouseItem> items = ExcelService.readExcel(
-                        selectedExcelFile,
-                        packTypeField.getText(),
-                        shippingMarksField.getText()
-                );
+                List<HouseItem> items = new ArrayList<>();
 
-                // ✅ Actualizează valorile în interfață
-                grossMassField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getGrossMass).sum()));
-                invoiceValueField.setText(String.format("%.2f",
-                        items.stream().mapToDouble(item -> item.getItemTaxes().getStatisticalValue()).sum()
-                ));
+                try {
+                    String ext = getFileExtension(selectedExcelFile);
+                    if (ext.equals("csv")) {
+                        items = CsvService.readCsv(
+                                selectedExcelFile,
+                                packTypeField.getText(),
+                                shippingMarksField.getText()
+                        );
+                    } else if (ext.equals("xlsx")) {
+                        items = ExcelService.readExcel(
+                                selectedExcelFile,
+                                packTypeField.getText(),
+                                shippingMarksField.getText()
+                        );
+                    } else {
+                        showError("Format neacceptat. Folosește .xlsx sau .csv");
+                        return;
+                    }
 
+                    // ✅ Actualizează valorile în interfață
+                    grossMassField.setText(String.format("%.2f", items.stream().mapToDouble(HouseItem::getGrossMass).sum()));
+                    invoiceValueField.setText(String.format("%.2f",
+                            items.stream().mapToDouble(item -> item.getItemTaxes().getStatisticalValue()).sum()
+                    ));
 
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    showError("Eroare la citirea fișierului: " + ex.getMessage());
+                }
             }
         });
 
@@ -307,6 +349,24 @@ public class MainApp extends Application {
                     packTypeField.getText(),
                     shippingMarksField.getText()
             );
+            int locuri;
+            try {
+                locuri = Integer.parseInt(locuriField.getText());
+            } catch (Exception ex) {
+                locuri = 1;
+            }
+            final int finalLocuri = locuri;
+
+
+            if (!items.isEmpty()) {
+                items.get(0).getPackagings().forEach(p -> p.setPackageNumber(finalLocuri));
+                for (int i = 1; i < items.size(); i++) {
+                    items.get(i).getPackagings().forEach(p -> p.setPackageNumber(0));
+                }
+
+            }
+
+
             String dispatchName = dispatchCountryField.getText().trim();
             String dispatchCode = dispatchCountryCodeField.getText().trim();
             System.out.println("DispatchName în UI: [" + dispatchName + "]");
@@ -380,7 +440,7 @@ public class MainApp extends Application {
                         guaranteeNumberField.getText(),
                         guaranteeCodeField.getText(),
                         Double.parseDouble(guaranteeAmountField.getText()),
-                        "EUR",
+                        "LEI",
                         1
                 );
                 Guarantee guarantee = new Guarantee(1, guaranteeTypeBox.getValue().substring(0, 1), List.of(ref));
@@ -394,13 +454,9 @@ public class MainApp extends Application {
                 List<HouseConsignment> houseConsignments = List.of(cons);
 
                 // 7. Apel JsonService complet
-                // Creează idType (ex: 30 = "Registration Number of the Road Vehicle")
                 IdType idType = new IdType(30, "Registration Number of the Road Vehicle", true);
-
-// Creează custOffice (biroul vamal de plecare, numele poate fi hardcodat)
                 CustOffice custOffice = new CustOffice(depOfficeField.getText(), "LEUSENI (PVFI, rutier)");
 
-// Creează BorderTransport complet
                 BorderTransport borderTransport = new BorderTransport(
                         1,                         // sequence
                         idType,
@@ -408,7 +464,6 @@ public class MainApp extends Application {
                         "MD",                      // țară
                         custOffice
                 );
-                ;
                 JsonService.generateJson(
                         exporter,
                         contact,
@@ -434,7 +489,7 @@ public class MainApp extends Application {
                         transportDocTypeField.getText(),
                         dispatchCountryField.getText().trim(),
                         dispatchCountryCodeField.getText().trim()
-                        );
+                );
                 stage.setOnCloseRequest(event -> {
                     SavedFormData formData = new SavedFormData();
                     formData.expCountry = expCountryField.getText();
@@ -464,6 +519,8 @@ public class MainApp extends Application {
                     formData.guaranteeType = guaranteeTypeBox.getValue();
 
                     md.ncts.util.SavedDataStorage.save(formData);
+                    System.out.println("✅ Datele au fost trimise spre salvare...");
+
                 });
 
 
@@ -484,11 +541,22 @@ public class MainApp extends Application {
                 item.setDispatchCountryCode(dispatchCode);
                 item.setDispatchCountryName(dispatchName);
             }
-            List<HouseItem> items = ExcelService.readExcel(
-                    selectedExcelFile,
-                    packTypeField.getText(),
-                    shippingMarksField.getText()
-            );
+            List<HouseItem> items;
+            String ext = getFileExtension(selectedExcelFile);
+            if (ext.equals("csv")) {
+                items = CsvService.readCsv(
+                        selectedExcelFile,
+                        packTypeField.getText(),
+                        shippingMarksField.getText()
+                );
+            } else {
+                items = ExcelService.readExcel(
+                        selectedExcelFile,
+                        packTypeField.getText(),
+                        shippingMarksField.getText()
+                );
+            }
+
 
 
 
@@ -619,14 +687,23 @@ public class MainApp extends Application {
         });
     }
 
-
-
-
-
     private void showAlert(String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText(msg);
         a.setHeaderText(null);
+        a.showAndWait();
+    }
+    private static String getFileExtension(File file) {
+        String name = file.getName();
+        int dotIndex = name.lastIndexOf('.');
+        return (dotIndex > 0) ? name.substring(dotIndex + 1).toLowerCase() : "";
+    }
+
+    private void showError(String msg) {
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setTitle("Eroare");
+        a.setHeaderText(null);
+        a.setContentText("❌ " + msg);
         a.showAndWait();
     }
 

@@ -1,8 +1,6 @@
 package md.ncts.util;
-
-import com.google.gson.JsonObject;
 import com.google.gson.Gson;
-
+import com.google.gson.JsonObject;
 import java.io.File;
 import java.io.FileReader;
 import java.net.NetworkInterface;
@@ -66,4 +64,43 @@ public class LicenseValidator {
         for (byte b : hash) sb.append(String.format("%02x", b));
         return sb.toString();
     }
+    public static String generateActivationCode(String mac, String company, String expiryDate) {
+        try {
+            String data = mac + company + expiryDate;
+            String signature = hashWithSecret(data);
+            return mac + "|" + company + "|" + expiryDate + "|" + signature;
+        } catch (Exception e) {
+            return "INVALID";
+        }
+    }
+    public static boolean isCodeValid(String code) {
+        try {
+            String[] parts = code.split("\\|");
+            if (parts.length != 4) return false;
+
+            String mac = parts[0];
+            String company = parts[1];
+            String expiry = parts[2];
+            String signature = parts[3];
+
+            String currentMac = getMacAddress();
+            if (!mac.equalsIgnoreCase(currentMac)) return false;
+
+            String data = mac + company + expiry;
+            String expectedSignature = hashWithSecret(data);
+            if (!expectedSignature.equalsIgnoreCase(signature)) return false;
+
+            if (!expiry.equals("NEEXPIRABIL")) {
+                long expiryMillis = new SimpleDateFormat("yyyy-MM-dd").parse(expiry).getTime();
+                if (System.currentTimeMillis() > expiryMillis) return false;
+            }
+
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 }

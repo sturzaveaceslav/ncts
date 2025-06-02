@@ -38,7 +38,9 @@ public class ExcelService {
                     ItemTaxes itemTaxes = new ItemTaxes("EUR", (int) qty, 0, val);
                     item = new HouseItem(
                             sequence++, hsCode, desc, brutt, nett, nett,
-                            new ArrayList<>(List.of(new Packaging(packageType, String.valueOf((int) qty), shippingMark, 1))),
+                            new ArrayList<>(List.of(
+                                    new Packaging(packageType, (int) qty, shippingMark, 1)
+                            )),
                             itemTaxes
                     );
                     grouped.put(hsCode, item);
@@ -48,7 +50,7 @@ public class ExcelService {
                     item.setSupplementaryUnits(item.getSupplementaryUnits() + nett);
                     item.getItemTaxes().setQuantity1(item.getItemTaxes().getQuantity1() + (int) qty);
                     item.getItemTaxes().setStatisticalValue(item.getItemTaxes().getStatisticalValue() + val);
-                    item.getPackagings().add(new Packaging(packageType, String.valueOf((int) qty), shippingMark, 1));
+                    item.getPackagings().add(new Packaging(packageType, (int) qty, shippingMark, 1));
                 }
             }
 

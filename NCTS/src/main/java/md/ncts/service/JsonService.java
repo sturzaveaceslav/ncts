@@ -2,6 +2,7 @@ package md.ncts.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import javafx.scene.control.Alert;
 import md.ncts.model.*;
 
 import java.io.File;
@@ -87,13 +88,17 @@ public class JsonService {
                 packType.put("name", "definitie comuna");
                 packType.put("packageKind", "PACKED");
 
-                Map<String, Object> packaging = new LinkedHashMap<>();
-                packaging.put("packType", packType);
-                packaging.put("packageNumber", (index == 1) ? 1 : 0);
-                packaging.put("sequence", 1);
-                packaging.put("shippingMark", "F/M");
+                List<Map<String, Object>> packagingList = new ArrayList<>();
+                for (Packaging p : hi.getPackagings()) {
+                    Map<String, Object> packaging = new LinkedHashMap<>();
+                    packaging.put("packType", packType);
+                    packaging.put("packageNumber", p.getPackageNumber()); // ✅ folosește din obiect
+                    packaging.put("sequence", p.getSequence());
+                    packaging.put("shippingMark", p.getShippingMarks());
+                    packagingList.add(packaging);
+                }
+                item.put("packagings", packagingList);
 
-                item.put("packagings", List.of(packaging));
 
                 item.put("previousDoc", new ArrayList<>());
                 item.put("sequence", index);
@@ -235,7 +240,21 @@ public class JsonService {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             try (FileWriter writer = new FileWriter(saveFile)) {
                 gson.toJson(root, writer);
+                System.out.println("✅ JSON salvat în: " + saveFile.getAbsolutePath());
+            } catch (Exception e) {
+                e.printStackTrace();
+
+                // Afișează și un dialog vizual
+                javafx.application.Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Eroare la salvare JSON");
+                    alert.setHeaderText("Nu s-a putut salva fișierul!");
+                    alert.setContentText(e.getMessage());
+                    alert.showAndWait();
+                });
             }
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
