@@ -4,21 +4,26 @@ import java.io.*;
 
 public class SavedActivationStorage {
 
-    private static final String FILE_NAME = "activation.txt";
+    private static final File FILE = new File(System.getenv("APPDATA"), "NCTS/activation.txt");
 
     public static void save(String code) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            writer.write(code);
+        try {
+            FILE.getParentFile().mkdirs(); // creează folderul dacă lipsește
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE))) {
+                writer.write(code);
+            }
+
+            md.ncts.util.LicenseValidator.saveLicenseJson(code);
+
         } catch (IOException e) {
             System.err.println("Eroare la salvarea codului de activare: " + e.getMessage());
         }
     }
 
     public static String load() {
-        File file = new File(FILE_NAME);
-        if (!file.exists()) return null;
+        if (!FILE.exists()) return null;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
             return reader.readLine();
         } catch (IOException e) {
             System.err.println("Eroare la citirea codului de activare: " + e.getMessage());

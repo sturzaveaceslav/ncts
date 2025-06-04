@@ -1,8 +1,9 @@
 package md.ncts.util;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import java.io.File;
-import java.io.FileReader;
+
+import java.io.*;
 import java.net.NetworkInterface;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -13,13 +14,13 @@ import java.util.Enumeration;
 public class LicenseValidator {
 
     private static final String SECRET_KEY = "slavon1234-secret-key"; // trebuie să fie IDENTICĂ cu cea din generator
+    private static final File LICENSE_FILE = new File(System.getenv("APPDATA"), "NCTS/license.json");
 
     public static boolean isValid() {
         try {
-            File file = new File("license.json");
-            if (!file.exists()) return false;
+            if (!LICENSE_FILE.exists()) return false;
 
-            JsonObject json = new Gson().fromJson(new FileReader(file), JsonObject.class);
+            JsonObject json = new Gson().fromJson(new FileReader(LICENSE_FILE), JsonObject.class);
             String mac = json.get("mac").getAsString();
             String company = json.get("company").getAsString();
             String expiry = json.get("expiry").getAsString();
@@ -44,6 +45,29 @@ public class LicenseValidator {
         }
     }
 
+    public static void saveLicenseJson(String code) {
+        try {
+            String[] parts = code.split("\\|");
+            if (parts.length != 4) return;
+
+            JsonObject json = new JsonObject();
+            json.addProperty("mac", parts[0]);
+            json.addProperty("company", parts[1]);
+            json.addProperty("expiry", parts[2]);
+            json.addProperty("signature", parts[3]);
+
+            // Creează folderul dacă nu există
+            LICENSE_FILE.getParentFile().mkdirs();
+
+            try (Writer writer = new FileWriter(LICENSE_FILE)) {
+                new Gson().toJson(json, writer);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getMacAddress() throws Exception {
         Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
         for (NetworkInterface ni : Collections.list(interfaces)) {
@@ -64,6 +88,7 @@ public class LicenseValidator {
         for (byte b : hash) sb.append(String.format("%02x", b));
         return sb.toString();
     }
+
     public static String generateActivationCode(String mac, String company, String expiryDate) {
         try {
             String data = mac + company + expiryDate;
@@ -73,6 +98,7 @@ public class LicenseValidator {
             return "INVALID";
         }
     }
+
     public static boolean isCodeValid(String code) {
         try {
             String[] parts = code.split("\\|");
@@ -101,6 +127,4 @@ public class LicenseValidator {
             return false;
         }
     }
-
-
 }

@@ -21,16 +21,14 @@ import md.ncts.service.CsvService;
 import md.ncts.service.ExcelService;
 import md.ncts.service.JsonService;
 import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.Image;
-import javafx.application.Platform;
 import md.ncts.util.SavedActivationStorage;
 import md.ncts.util.ActivationWindow;
 
-import md.ncts.util.LicenseValidator;
+
 
 public class MainApp extends Application {
 
@@ -82,17 +80,17 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) {
         // ✅ Verificare licență
-            if (!SavedActivationStorage.isSavedLicenseValid()) {
-                ActivationWindow activationWindow = new ActivationWindow();
-                boolean activated = activationWindow.showAndWait();
-                if (!activated) {
-                    Platform.exit();
-                    return;
-                }
-                // Salvează codul introdus de utilizator
-                String lastCode = ActivationWindow.getLastEnteredCode();
-                SavedActivationStorage.save(lastCode);
+        if (!SavedActivationStorage.isSavedLicenseValid()) {
+            ActivationWindow activationWindow = new ActivationWindow();
+            boolean activated = activationWindow.showAndWait();
+            if (!activated) {
+                Platform.exit();
+                return;
             }
+            // Salvează codul introdus de utilizator
+            String lastCode = ActivationWindow.getLastEnteredCode();
+            SavedActivationStorage.save(lastCode);
+        }
 
         ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("/img/logo.png")));
         logo.setFitWidth(100);
@@ -130,7 +128,7 @@ public class MainApp extends Application {
         TextField transportDocRefField = new TextField();
         TextField transportDocTypeField = new TextField("N760");
 
-        var saved = md.ncts.util.SavedDataStorage.load();
+        SavedFormData saved = md.ncts.util.SavedDataStorage.load();
         if (saved != null) {
             expCountryField.setText(saved.expCountry);
             contactNameField.setText(saved.contactName);
@@ -464,6 +462,22 @@ public class MainApp extends Application {
                         "MD",                      // țară
                         custOffice
                 );
+                if (!items.isEmpty()) {
+                    for (int i = 0; i < items.size(); i++) {
+                        HouseItem item = items.get(i);
+
+                        Packaging packaging = new Packaging();
+                        packaging.setPackageNumber(i == 0 ? finalLocuri : 0);
+                        packaging.setSequence(1);
+                        packaging.setShippingMarks(shippingMarksField.getText());
+
+                        List<Packaging> uniquePackaging = new ArrayList<>();
+                        uniquePackaging.add(packaging);
+
+                        item.setPackagings(uniquePackaging); // ✅ înlocuiește complet vechile ambalaje
+                    }
+                }
+
                 JsonService.generateJson(
                         exporter,
                         contact,
@@ -621,9 +635,44 @@ public class MainApp extends Application {
         Scene scene = new Scene(scrollPane, 1200, 800);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
+        Label poweredLabel = new Label("Powered by SV");
+        poweredLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: gray;");
+        root.getChildren().add(poweredLabel);
+
         stage.setScene(scene);
         stage.setTitle("NCTS - Generator JSON");
         stage.setMaximized(true);
+        stage.setOnCloseRequest(event -> {
+            SavedFormData formData = new SavedFormData();
+            formData.expCountry = expCountryField.getText();
+            formData.exporter = expNameField.getText();
+            formData.expStreet = expStreetField.getText();
+            formData.expCity = expCityField.getText();
+            formData.expPostcode = expPostcodeField.getText();
+            formData.contactName = contactNameField.getText();
+            formData.contactPhone = contactPhoneField.getText();
+            formData.contactEmail = contactEmailField.getText();
+            formData.repName = repNameField.getText();
+            formData.repCui = repCuiField.getText();
+            formData.repStreet = repStreetField.getText();
+            formData.repCity = repCityField.getText();
+            formData.repPostcode = repPostcodeField.getText();
+            formData.repCountry = repCountryField.getText();
+            formData.consigneeName = consigneeNameField.getText();
+            formData.consigneeStreet = consigneeStreetField.getText();
+            formData.consigneeCity = consigneeCityField.getText();
+            formData.consigneePostcode = consigneePostcodeField.getText();
+            formData.consigneeCountry = consigneeCountryField.getText();
+            formData.guaranteeNumber = guaranteeNumberField.getText();
+            formData.guaranteeCode = guaranteeCodeField.getText();
+            formData.guaranteeAmount = guaranteeAmountField.getText();
+            formData.declarationType = declarationTypeBox.getValue();
+            formData.declarationDetail = addDeclTypeBox.getValue();
+            formData.guaranteeType = guaranteeTypeBox.getValue();
+
+            md.ncts.util.SavedDataStorage.save(formData);
+            System.out.println("✅ Datele au fost trimise spre salvare...");
+        });
         stage.show();
 
     }
@@ -710,4 +759,5 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
