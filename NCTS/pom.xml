@@ -13,8 +13,6 @@
         <maven.compiler.target>17</maven.compiler.target>
         <javafx.version>21</javafx.version>
     </properties>
-    <mainClass>md.ncts.util.LicenseGuiApp</mainClass>
-
 
     <dependencies>
         <!-- JavaFX -->
@@ -30,15 +28,22 @@
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
-        <!-- org.json pentru LicenseGenerator -->
+
+        <!-- JSON (pentru LicenseGenerator) -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20230227</version>
         </dependency>
 
+        <!-- Jakarta Mail (pentru trimitere email) -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>2.0.1</version>
+        </dependency>
 
-        <!-- Apache POI (Excel .xlsx) -->
+        <!-- Apache POI (pentru Excel .xlsx) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
@@ -48,7 +53,7 @@
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
+            <!-- Plugin compilator -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -58,7 +63,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Exec Plugin to run JavaFX apps -->
+            <!-- Exec plugin pentru rulare directă -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -72,6 +77,32 @@
                         <argument>javafx.controls</argument>
                     </arguments>
                 </configuration>
+            </plugin>
+
+            <!-- Fat JAR cu toate dependențele -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>md.ncts.MainApp</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

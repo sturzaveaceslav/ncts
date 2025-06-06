@@ -237,28 +237,33 @@ public class JsonService {
 
             root.put("ucrReference", "002");
 
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gson = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .setLenient()
+                    .serializeSpecialFloatingPointValues()
+                    .create();
+
             try (FileWriter writer = new FileWriter(saveFile)) {
                 gson.toJson(root, writer);
                 System.out.println("✅ JSON salvat în: " + saveFile.getAbsolutePath());
             } catch (Exception e) {
                 e.printStackTrace();
 
-                // Afișează și un dialog vizual
-                javafx.application.Platform.runLater(() -> {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Eroare la salvare JSON");
-                    alert.setHeaderText("Nu s-a putut salva fișierul!");
-                    alert.setContentText(e.getMessage());
-                    alert.showAndWait();
-                });
-            }
-
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            // Afișează și un dialog vizual
+            javafx.application.Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Eroare la salvare JSON");
+                alert.setHeaderText("Nu s-a putut salva fișierul!");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            });
         }
+
+
+
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
 
 }

@@ -1,5 +1,6 @@
 package md.ncts;
 
+import java.nio.file.Files;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -199,7 +200,7 @@ public class MainApp extends Application {
         grid.add(guaranteeNumberField, 3, 0);
         grid.add(new Label("Guarantee Code"), 2, 1);
         grid.add(guaranteeCodeField, 3, 1);
-        grid.add(new Label("Guarantee Amount (EUR)"), 2, 2);
+        grid.add(new Label("Guarantee Amount (LEI)"), 2, 2);
         grid.add(guaranteeAmountField, 3, 2);
         grid.add(new Label("Tip Garanție"), 2, 3);
         grid.add(guaranteeTypeBox, 3, 3);
@@ -486,11 +487,11 @@ public class MainApp extends Application {
                         truckField.getText(),
                         depOfficeField.getText(),
                         destOfficeField.getText(),
-                        Double.parseDouble(grossMassField.getText()),
-                        Double.parseDouble(invoiceValueField.getText()),
+                        Double.parseDouble(grossMassField.getText().replace(",", ".")),
+                        Double.parseDouble(invoiceValueField.getText().replace(",", ".")),
                         guaranteeNumberField.getText(),
                         guaranteeCodeField.getText(),
-                        Double.parseDouble(guaranteeAmountField.getText()),
+                        Double.parseDouble(guaranteeAmountField.getText().replace(",", ".")),
                         packTypeField.getText(),
                         shippingMarksField.getText(),
                         selectedExcelFile,
@@ -502,8 +503,7 @@ public class MainApp extends Application {
                         transportDocRefField.getText(),
                         transportDocTypeField.getText(),
                         dispatchCountryField.getText().trim(),
-                        dispatchCountryCodeField.getText().trim()
-                );
+                        dispatchCountryCodeField.getText().trim());
                 stage.setOnCloseRequest(event -> {
                     SavedFormData formData = new SavedFormData();
                     formData.expCountry = expCountryField.getText();
@@ -542,6 +542,119 @@ public class MainApp extends Application {
             }
         });
 
+        Button emailDirectBtn = new Button("Trimite JSON direct");
+        emailDirectBtn.setOnAction(evt -> {
+            if (selectedExcelFile == null) {
+                showAlert("❌ Selectează un fișier Excel înainte.");
+                return;
+            }
+
+            String email = contactEmailField.getText();
+            if (email == null || email.isEmpty()) {
+                showAlert("❌ Introdu adresa de email mai jos.");
+                return;
+            }
+
+            try {
+                System.out.println("📥 Încep citirea fișierului Excel...");
+                List<HouseItem> items = (modifiedItems != null && !modifiedItems.isEmpty())
+                        ? modifiedItems
+                        : ExcelService.readExcel(
+                        selectedExcelFile,
+                        packTypeField.getText(),
+                        shippingMarksField.getText()
+                );
+
+                int locuri = Integer.parseInt(locuriField.getText());
+                final int finalLocuri = locuri;
+
+                if (!items.isEmpty()) {
+                    items.get(0).getPackagings().forEach(p -> p.setPackageNumber(finalLocuri));
+                    for (int i = 1; i < items.size(); i++) {
+                        items.get(i).getPackagings().forEach(p -> p.setPackageNumber(0));
+                    }
+                }
+
+                Exporter exporter = new Exporter(
+                        expNameField.getText(),
+                        eoriField.getText(),
+                        expStreetField.getText(),
+                        expCityField.getText(),
+                        expCountryField.getText(),
+                        expPostcodeField.getText()
+                );
+
+                Contact contact = new Contact(
+                        contactNameField.getText(),
+                        contactPhoneField.getText(),
+                        contactEmailField.getText()
+                );
+
+                Consignee consignee = new Consignee(
+                        consigneeNameField.getText(),
+                        "",
+                        consigneeStreetField.getText(),
+                        consigneeCityField.getText(),
+                        consigneeCountryField.getText(),
+                        consigneePostcodeField.getText()
+                );
+
+                Representative representative = new Representative(
+                        repNameField.getText(),
+                        repCuiField.getText(),
+                        repStreetField.getText(),
+                        repCityField.getText(),
+                        repPostcodeField.getText(),
+                        repCountryField.getText()
+                );
+
+                File tempJson = java.nio.file.Files.createTempFile("ncts_", ".json").toFile();
+
+                System.out.println("📄 Generare JSON în fișier temporar: " + tempJson.getAbsolutePath());
+
+                JsonService.generateJson(
+                        exporter,
+                        contact,
+                        consignee,
+                        representative,
+                        truckField.getText(),
+                        depOfficeField.getText(),
+                        destOfficeField.getText(),
+                        Double.parseDouble(grossMassField.getText().replace(",", ".")),
+                        Double.parseDouble(invoiceValueField.getText().replace(",", ".")),
+                        guaranteeNumberField.getText(),
+                        guaranteeCodeField.getText(),
+                        Double.parseDouble(guaranteeAmountField.getText().replace(",", ".")),
+                        packTypeField.getText(),
+                        shippingMarksField.getText(),
+                        selectedExcelFile,
+                        items,
+                        tempJson,
+                        false,
+                        "", "", "", "", // doc refs
+                        dispatchCountryField.getText(),
+                        dispatchCountryCodeField.getText()
+                );
+
+                if (!tempJson.exists() || tempJson.length() == 0) {
+                    System.err.println("⚠️ Fișierul JSON nu a fost creat sau este gol!");
+                    showError("Eroare: JSON nu a fost creat!");
+                    return;
+                }
+
+                System.out.println("📧 Trimit email către " + email + " cu fișierul: " + tempJson.getName());
+                md.ncts.util.EmailSender.sendEmailOutlook(email, tempJson);
+                showAlert("✅ JSON generat și trimis către " + email);
+
+                tempJson.deleteOnExit();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                showError("Eroare la generare sau trimitere: " + ex.getMessage());
+            }
+        });
+
+
         Button fixKgBtn = new Button("Generează KG");
 
         fixKgBtn.setOnAction(e -> {
@@ -571,9 +684,6 @@ public class MainApp extends Application {
                 );
             }
 
-
-
-
             if (items.isEmpty()) {
                 showAlert("Fișierul Excel nu conține articole.");
                 return;
@@ -597,7 +707,7 @@ public class MainApp extends Application {
 
         });
 
-        HBox buttons = new HBox(10, uploadBtn, genBtn, fixKgBtn);
+        HBox buttons = new HBox(10, uploadBtn, genBtn, fixKgBtn, emailDirectBtn);
         buttons.setAlignment(Pos.CENTER_LEFT);
 
         HBox actorSection = new HBox(50, exporterGrid, contactGrid, consigneeGrid);
@@ -621,7 +731,6 @@ public class MainApp extends Application {
                 actorSection,
                 reprezentantBox
         );
-
 
         root.setPadding(new Insets(20));
         root.getStyleClass().add("root");
